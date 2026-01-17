@@ -1,13 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contenuto = document.getElementById("contenuto");
-  const player = document.getElementById("playerArea");
+  const playerArea = document.getElementById("playerArea");
 
-  const homeBtn = document.getElementById("tab-home");
-  const localiBtn = document.getElementById("tab-locali");
-  const prefBtn = document.getElementById("tab-preferiti");
-  const infoBtn = document.getElementById("tab-info");
+  const tabHome = document.getElementById("tab-home");
+  const tabPreferiti = document.getElementById("tab-preferiti");
+  const tabLocali = document.getElementById("tab-locali");
+  const tabInfo = document.getElementById("tab-info");
 
   const EMAIL = "ottone_mamba4i@icloud.com";
+  const PREF_KEY = "tvAccessibile_preferiti_v1";
+
+  let currentList = [];
+
+  /* ---------- UTILS ---------- */
+  function isIOS() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  function escapeHtml(s) {
+    return String(s ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;");
+  }
 
   async function loadJSON(path) {
     const r = await fetch(path, { cache: "no-store" });
@@ -15,155 +31,140 @@ document.addEventListener("DOMContentLoaded", () => {
     return r.json();
   }
 
-  // Preferiti (salvati sul dispositivo: tu hai i tuoi, tuo padre i suoi)
+  function focusPlayer() {
+    playerArea.setAttribute("tabindex", "-1");
+    playerArea.focus();
+    playerArea.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /* ---------- PREFERITI ---------- */
   function getPreferiti() {
     try {
-      return JSON.parse(localStorage.getItem("preferiti") || "[]");
+      return JSON.parse(localStorage.getItem(PREF_KEY) || "[]");
     } catch {
       return [];
     }
   }
 
   function savePreferiti(list) {
-    localStorage.setItem("preferiti", JSON.stringify(list));
+    localStorage.setItem(PREF_KEY, JSON.stringify(list));
   }
 
-  function isPreferito(name) {
-    return getPreferiti().includes(name);
+  function channelId(ch) {
+    return (ch.type || "t") + "|" + (ch.url || ch.name || "");
   }
 
-  function togglePreferito(name) {
+  function isPref(ch) {
+    return getPreferiti().some(x => x.id === channelId(ch));
+  }
+
+  function togglePref(ch) {
+    const id = channelId(ch);
     const list = getPreferiti();
-    const i = list.indexOf(name);
+    const i = list.findIndex(x => x.id === id);
     if (i >= 0) list.splice(i, 1);
-    else list.push(name);
+    else list.push({ id, name: ch.name, lcn: ch.lcn ?? null });
     savePreferiti(list);
   }
 
-  function scrollPlayerTop() {
-    player.scrollIntoView({ behavior: "smooth", block: "start" });
-    player.focus?.();
-  }
+  /* ---------- STREAM URLS ---------- */
+  function collectUrls(ch) {
+    const out = [];
+    const push = (u) => { if (u && typeof u === "string" && !out.includes(u)) out.push(u); };
 
-  // Prova a creare una lista di URL alternativi se presenti nel JSON
-  function getCandidateUrls(channel) {
-    const urls = [];
-    if (channel.url) urls.push(channel.url);
-    if (channel.fallback && channel.fallback.url) urls.push(channel.fallback.url);
-    if (channel.geoblock && channel.geoblock.url) urls.push(channel.geoblock.url);
-    if (Array.isArray(channel.hbbtv)) {
-      for (const h of channel.hbbtv) {
-        if (h && h.url) urls.push(h.url);
-      }
+    push(ch.url);
+    if (ch.fallback?.url) push(ch.fallback.url);
+    if (ch.geoblock?.url) push(ch.geoblock.url);
+    if (Array.isArray(ch.hbbtv)) {
+      for (const h of ch.hbbtv) if (h?.url) push(h.url);
     }
-    // rimuovi duplicati
-    return [...new Set(urls)];
+    return out;
   }
 
-  // Player interno (non sempre funziona su iPhone, ma lo lasciamo)
-  function playInPage(url, channel) {
-    player.innerHTML = `
-      <h2>Player: ${channel.name}</h2>
-      <p>LCN ${channel.lcn || "-"} • ${channel.type || ""}</p>
-      <video controls autoplay playsinline style="width:100%;max-height:45vh;background:#000">
-        <source src="${url}">
-      </video>
-      <p>
-        <button id="btn-open">Apri streaming in nuova scheda</button>
-        <button id="btn-pref">${isPreferito(channel.name) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}</button>
-      </p>
-      <p id="note"></p>
+  /* ---------- PLAYER ---------- */
+  function setPlayer(ch, url, note = "") {
+    const prefLabel = isPref(ch) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti";
+
+    playerArea.innerHTML = `
+      <h2>Player: ${escapeHtml(ch.name)}</h2>
+      <p>${escapeHtml(ch.lcn ? "LCN " + ch.lcn : "")}</p>
+
+      <video id="videoPlayer" controls playsinline style="width:100%;max-height:45vh;background:#000"></video>
+
+      <div style="margin-top:8px">
+        <button id="btn-open">Apri streaming</button>
+        <button id="btn-pref">${prefLabel}</button>
+      </div>
+
+      <p id="note">${escapeHtml(note)}</p>
     `;
 
-    document.getElementById("btn-open")?.addEventListener("click", () => {
-      window.open(url, "_blank", "noopener");
-    });
+    const video = document.getElementById("videoPlayer");
+    video.src = url;
+    video.autoplay = true;
+    video.play().catch(() => {});
 
-    document.getElementById("btn-pref")?.addEventListener("click", () => {
-      togglePreferito(channel.name);
+    document.getElementById("btn-open").onclick = () => {
+      // apertura MANUALE, decisa dall’utente
+      window.location.href = url;
+    };
+
+    document.getElementById("btn-pref").onclick = () => {
+      togglePref(ch);
       document.getElementById("btn-pref").textContent =
-        isPreferito(channel.name) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti";
+        isPref(ch) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti";
+    };
+
+    focusPlayer();
+  }
+
+  /* ---------- RENDER LISTE ---------- */
+  function renderChannels(channels, titolo) {
+    currentList = channels;
+
+    contenuto.innerHTML = `
+      <h2>${escapeHtml(titolo)}</h2>
+      <ul>
+        ${channels.map((ch, i) => `
+          <li style="margin-bottom:10px">
+            <strong>${escapeHtml((ch.lcn ? ch.lcn + " " : "") + ch.name)}</strong>
+            <button data-play="${i}">Riproduci</button>
+            <button data-pref="${i}">Preferito</button>
+          </li>
+        `).join("")}
+      </ul>
+    `;
+
+    contenuto.querySelectorAll("button[data-play]").forEach(btn => {
+      btn.onclick = () => {
+        const ch = currentList[Number(btn.dataset.play)];
+        const urls = collectUrls(ch);
+        if (!urls.length) return;
+
+        setPlayer(
+          ch,
+          urls[0],
+          isIOS()
+            ? "Su Safari alcuni canali potrebbero non partire: usa 'Apri streaming'."
+            : ""
+        );
+      };
     });
 
-    scrollPlayerTop();
-  }
-
-  // ✅ Riproduzione “robusta” per iPhone:
-  // - appena premi Riproduci: apre subito una nuova scheda con lo stream (così parte)
-  // - e prova anche nel player della pagina
-  window.playAndOpen = function (encoded) {
-    const channel = JSON.parse(decodeURIComponent(encoded));
-    const urls = getCandidateUrls(channel);
-
-    if (!urls.length) return;
-
-    // 1) Apri SUBITO in nuova scheda (massima compatibilità iPhone)
-    window.open(urls[0], "_blank", "noopener");
-
-    // 2) Prova anche in pagina (se funziona, bene; se no, hai già la scheda)
-    playInPage(urls[0], channel);
-
-    // Se non parte, tenta gli altri URL nel player interno (non apre altre schede)
-    let idx = 1;
-    const video = player.querySelector("video");
-    const note = document.getElementById("note");
-
-    if (video) {
-      const tryNext = () => {
-        if (idx >= urls.length) return;
-        const nextUrl = urls[idx++];
-        if (note) note.textContent = "Provo un link alternativo…";
-        video.src = nextUrl;
-        video.load();
-        video.play().catch(() => {});
+    contenuto.querySelectorAll("button[data-pref]").forEach(btn => {
+      btn.onclick = () => {
+        const ch = currentList[Number(btn.dataset.pref)];
+        togglePref(ch);
       };
-
-      // se errore, prova il prossimo
-      video.addEventListener("error", () => tryNext());
-
-      // se dopo 3 secondi non è partito, prova il prossimo
-      setTimeout(() => {
-        // se è ancora a 0 e non sta suonando
-        if (video.currentTime === 0 && video.paused) {
-          tryNext();
-        }
-      }, 3000);
-    }
-  };
-
-  function renderChannels(channels) {
-    contenuto.innerHTML =
-      "<ul>" +
-      channels
-        .map((c) => {
-          const safe = encodeURIComponent(JSON.stringify(c));
-          return `<li style="margin-bottom:10px">
-            <strong>${c.lcn || ""}</strong> ${c.name}
-            <button onclick='playAndOpen("${safe}")'>Riproduci</button>
-            <button onclick='(function(){ 
-              const n=${JSON.stringify(c.name)};
-              const p=JSON.parse(localStorage.getItem("preferiti")||"[]");
-              const i=p.indexOf(n);
-              if(i>=0){p.splice(i,1)} else {p.push(n)}
-              localStorage.setItem("preferiti", JSON.stringify(p));
-              alert((i>=0) ? "Rimosso dai preferiti" : "Aggiunto ai preferiti");
-            })()'>Preferito</button>
-          </li>`;
-        })
-        .join("") +
-      "</ul>";
+    });
   }
 
-  function home() {
-    contenuto.innerHTML = "<h2>Nazionali</h2><p>Caricamento…</p>";
-    loadJSON("data/nazionali.json")
-      .then((d) => {
-        contenuto.innerHTML = "<h2>Nazionali</h2>";
-        renderChannels(d.channels);
-      })
-      .catch(() => {
-        contenuto.innerHTML = "<p>Errore nel caricamento dei nazionali</p>";
-      });
+  /* ---------- SEZIONI ---------- */
+  async function mostraHome() {
+    playerArea.innerHTML = `<h2>Player</h2><p>Nessun canale selezionato.</p>`;
+    contenuto.innerHTML = `<p>Caricamento…</p>`;
+    const d = await loadJSON("data/nazionali.json");
+    renderChannels(d.channels, "Nazionali");
   }
 
   async function caricaRegione(id) {
@@ -174,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function locali() {
+  function mostraLocali() {
     const regioni = [
       "abruzzo","basilicata","calabria","campania","emilia-romagna",
       "friuli-venezia-giulia","lazio","liguria","lombardia","marche",
@@ -182,39 +183,31 @@ document.addEventListener("DOMContentLoaded", () => {
       "trentino-alto-adige","umbria","valle-daosta","veneto"
     ];
 
-    contenuto.innerHTML =
-      "<h2>Locali</h2>" +
-      "<p>Apri una regione per vedere i canali.</p>" +
-      "<ul>" +
-      regioni.map((r) => `<li><button data-r="${r}">${r}</button></li>`).join("") +
-      "</ul>" +
-      "<div id='loc'></div>";
+    contenuto.innerHTML = `
+      <h2>Locali</h2>
+      <ul>
+        ${regioni.map(r => `<li><button data-r="${r}">${r}</button></li>`).join("")}
+      </ul>
+      <div id="loc"></div>
+    `;
 
-    document.querySelectorAll("button[data-r]").forEach((b) => {
+    document.querySelectorAll("button[data-r]").forEach(b => {
       b.onclick = async () => {
-        const box = document.getElementById("loc");
-        if (box) box.innerHTML = "<p>Caricamento…</p>";
-        try {
-          const d = await caricaRegione(b.dataset.r);
-          if (box) box.innerHTML = `<h3>${b.dataset.r}</h3>`;
-          renderChannels(d.channels);
-        } catch {
-          if (box) box.innerHTML = "<p>Regione non trovata</p>";
-        }
+        const d = await caricaRegione(b.dataset.r);
+        renderChannels(d.channels, b.dataset.r);
       };
     });
   }
 
-  function preferiti() {
+  function mostraPreferiti() {
     const p = getPreferiti();
     contenuto.innerHTML =
       "<h2>Preferiti</h2>" +
-      (p.length
-        ? "<ul>" + p.map((x) => `<li>${x}</li>`).join("") + "</ul>"
-        : "<p>Nessun preferito</p>");
+      (p.length ? "<ul>" + p.map(x => `<li>${escapeHtml(x.name)}</li>`).join("") + "</ul>"
+                : "<p>Nessun preferito</p>");
   }
 
-  function info() {
+  function mostraInfo() {
     contenuto.innerHTML = `
       <h2>Info</h2>
       <p><strong>Creata da:</strong> Pepitos</p>
@@ -222,11 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  homeBtn.onclick = home;
-  localiBtn.onclick = locali;
-  prefBtn.onclick = preferiti;
-  infoBtn.onclick = info;
+  tabHome.onclick = mostraHome;
+  tabLocali.onclick = mostraLocali;
+  tabPreferiti.onclick = mostraPreferiti;
+  tabInfo.onclick = mostraInfo;
 
-  // avvio
-  home();
+  mostraHome();
 });
