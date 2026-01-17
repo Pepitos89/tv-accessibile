@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const contenuto = document.getElementById("contenuto");
   const playerArea = document.getElementById("playerArea");
 
@@ -7,167 +8,202 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabPreferiti = document.getElementById("tab-preferiti");
   const tabInfo = document.getElementById("tab-info");
 
-  const EMAIL = "ottone_mamba4i@icloud.com";
-  const PREF_KEY = "tvAccessibile_preferiti_v1";
+  /* ===================== UTIL ===================== */
 
-  let currentChannels = [];
-
-  /* ---------- UTILS ---------- */
   async function loadJSON(path) {
     const r = await fetch(path, { cache: "no-store" });
     if (!r.ok) throw new Error(path);
     return r.json();
   }
 
-  function escapeHtml(s) {
-    return String(s ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;");
+  function scrollTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  /* ===================== PLAYER ===================== */
+
   function collectUrls(ch) {
-    const out = [];
-    const add = u => { if (u && !out.includes(u)) out.push(u); };
+    const urls = [];
+    const add = (u) => {
+      if (u && typeof u === "string" && !urls.includes(u)) urls.push(u);
+    };
+
+    const isRai = (ch.name || "").toLowerCase().includes("rai");
+
+    if (isRai) {
+      if (ch.fallback?.url) add(ch.fallback.url);
+      if (Array.isArray(ch.hbbtv)) ch.hbbtv.forEach(h => add(h.url));
+      add(ch.url);
+      if (ch.geoblock?.url) add(ch.geoblock.url);
+      return urls;
+    }
 
     add(ch.url);
     if (ch.fallback?.url) add(ch.fallback.url);
     if (ch.geoblock?.url) add(ch.geoblock.url);
-    if (Array.isArray(ch.hbbtv)) {
-      ch.hbbtv.forEach(h => add(h.url));
-    }
-    return out;
+    if (Array.isArray(ch.hbbtv)) ch.hbbtv.forEach(h => add(h.url));
+
+    return urls;
   }
 
-  /* ---------- PREFERITI ---------- */
-  function getPrefs() {
-    try { return JSON.parse(localStorage.getItem(PREF_KEY) || "[]"); }
-    catch { return []; }
-  }
+  function playChannel(ch) {
+    scrollTop();
 
-  function savePrefs(p) {
-    localStorage.setItem(PREF_KEY, JSON.stringify(p));
-  }
+    const urls = collectUrls(ch);
+    let index = 0;
 
-  function isPref(ch) {
-    return getPrefs().includes(ch.name);
-  }
-
-  function togglePref(ch) {
-    const p = getPrefs();
-    const i = p.indexOf(ch.name);
-    if (i >= 0) p.splice(i, 1);
-    else p.push(ch.name);
-    savePrefs(p);
-  }
-
-  /* ---------- PLAYER ---------- */
-  function setPlayer(ch, url) {
     playerArea.innerHTML = `
-      <h2>Player: ${escapeHtml(ch.name)}</h2>
-      <p>${ch.lcn ? "LCN " + ch.lcn : ""}</p>
-
-      <video controls autoplay playsinline style="width:100%;max-height:45vh;background:#000">
-        <source src="${url}">
-      </video>
-
+      <h2>Player: ${ch.name}</h2>
+      <p>LCN ${ch.lcn || ""} • ${ch.type || "stream"}</p>
+      <video id="videoPlayer" controls playsinline style="width:100%;max-width:640px;"></video>
       <p>
-        <button id="btn-open">Apri streaming</button>
-        <button id="btn-pref">${isPref(ch) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}</button>
+        <button id="openTab">Apri streaming in nuova scheda</button>
+        <button id="favBtn">Aggiungi ai preferiti</button>
       </p>
+      <p id="playerStatus">Avvio stream…</p>
     `;
 
-    document.getElementById("btn-open").onclick = () => {
-      const u = encodeURIComponent(url);
-      const n = encodeURIComponent(ch.name);
-      window.location.href = `play.html?u=${u}&name=${n}`;
+    const video = document.getElementById("videoPlayer");
+    const status = document.getElementById("playerStatus");
+
+    document.getElementById("openTab").onclick = () => {
+      window.open(urls[0], "_blank");
     };
 
-    document.getElementById("btn-pref").onclick = () => {
-      togglePref(ch);
-      setPlayer(ch, url);
-    };
+    document.getElementById("favBtn").onclick = () => addPreferito(ch);
 
-    playerArea.scrollIntoView({ behavior: "smooth" });
+    function tryNext() {
+      if (index >= urls.length) {
+        status.textContent = "❌ Stream non disponibile in questo browser.";
+        return;
+      }
+      const url = urls[index++];
+      video.src = url;
+      video.load();
+
+      video.play().then(() => {
+        status.textContent = "▶️ Riproduzione avviata";
+      }).catch(() => {
+        setTimeout(tryNext, 600);
+      });
+    }
+
+    tryNext();
   }
 
-  /* ---------- RENDER ---------- */
-  function renderChannels(list, title) {
-    currentChannels = list;
+  /* ===================== LISTE ===================== */
 
-    contenuto.innerHTML = `
-      <h2>${escapeHtml(title)}</h2>
+  function listaCanali(canali) {
+    return `
       <ul>
-        ${list.map((ch, i) => `
-          <li style="margin-bottom:10px">
-            <strong>${escapeHtml((ch.lcn ? ch.lcn + " " : "") + ch.name)}</strong>
-            <button data-play="${i}">Riproduci</button>
-            <button data-pref="${i}">Preferito</button>
+        ${canali.map(ch => `
+          <li>
+            ${ch.lcn || ""} ${ch.name}
+            <button onclick='window.__play(${JSON.stringify(ch)})'>Riproduci</button>
+            <button onclick='window.__fav(${JSON.stringify(ch)})'>Preferito</button>
           </li>
         `).join("")}
       </ul>
     `;
+  }
 
-    contenuto.querySelectorAll("button[data-play]").forEach(b => {
-      b.onclick = () => {
-        const ch = currentChannels[b.dataset.play];
-        const urls = collectUrls(ch);
-        if (urls.length) setPlayer(ch, urls[0]);
-      };
-    });
+  /* ===================== HOME ===================== */
 
-    contenuto.querySelectorAll("button[data-pref]").forEach(b => {
-      b.onclick = () => {
-        togglePref(currentChannels[b.dataset.pref]);
-      };
+  function home() {
+    contenuto.innerHTML = "<h2>Nazionali</h2><p>Caricamento…</p>";
+    loadJSON("data/nazionali.json").then(d => {
+      contenuto.innerHTML =
+        "<h2>Nazionali</h2>" +
+        listaCanali(d.channels);
+    }).catch(() => {
+      contenuto.innerHTML = "<p>Errore nel caricamento dei nazionali</p>";
     });
   }
 
-  /* ---------- SEZIONI ---------- */
-  async function home() {
-    const d = await loadJSON("data/nazionali.json");
-    renderChannels(d.channels, "Nazionali");
+  /* ===================== LOCALI ===================== */
+
+  const regioni = [
+    "abruzzo","basilicata","calabria","campania","emilia-romagna",
+    "friuli-venezia-giulia","lazio","liguria","lombardia","marche",
+    "molise","piemonte","puglia","sardegna","sicilia","toscana",
+    "trentino-alto-adige","umbria","valle-daosta","veneto"
+  ];
+
+  async function caricaRegione(id) {
+    try {
+      return await loadJSON("locali/" + id + ".json");
+    } catch {
+      return await loadJSON("data/regioni/" + id + ".json");
+    }
   }
 
-  async function locali() {
-    const regioni = [
-      "abruzzo","basilicata","calabria","campania","emilia-romagna",
-      "friuli-venezia-giulia","lazio","liguria","lombardia","marche",
-      "molise","piemonte","puglia","sardegna","sicilia","toscana",
-      "trentino-alto-adige","umbria","valle-daosta","veneto"
-    ];
-
+  function locali() {
     contenuto.innerHTML = `
       <h2>Locali</h2>
+      <p>Apri una regione per vedere i canali</p>
       <ul>
         ${regioni.map(r => `<li><button data-r="${r}">${r}</button></li>`).join("")}
       </ul>
+      <div id="regioneCanali"></div>
     `;
 
-    contenuto.querySelectorAll("button[data-r]").forEach(b => {
+    document.querySelectorAll("button[data-r]").forEach(b => {
       b.onclick = async () => {
-        const d = await loadJSON("data/regioni/" + b.dataset.r + ".json");
-        renderChannels(d.channels, b.dataset.r);
+        const box = document.getElementById("regioneCanali");
+        box.innerHTML = "<p>Caricamento…</p>";
+        try {
+          const d = await caricaRegione(b.dataset.r);
+          box.innerHTML =
+            `<h3>${b.dataset.r}</h3>` +
+            listaCanali(d.channels);
+        } catch {
+          box.innerHTML = "<p>Regione non trovata</p>";
+        }
       };
     });
   }
 
+  /* ===================== PREFERITI ===================== */
+
+  function getPreferiti() {
+    return JSON.parse(localStorage.getItem("preferiti") || "[]");
+  }
+
+  function addPreferito(ch) {
+    const p = getPreferiti();
+    if (!p.find(x => x.name === ch.name)) {
+      p.push(ch);
+      localStorage.setItem("preferiti", JSON.stringify(p));
+      alert("Aggiunto ai preferiti");
+    }
+  }
+
   function preferiti() {
-    const p = getPrefs();
+    const p = getPreferiti();
     contenuto.innerHTML =
       "<h2>Preferiti</h2>" +
-      (p.length ? "<ul>" + p.map(x => `<li>${escapeHtml(x)}</li>`).join("") + "</ul>"
-                : "<p>Nessun preferito</p>");
+      (p.length ? listaCanali(p) : "<p>Nessun preferito</p>");
   }
+
+  /* ===================== INFO ===================== */
 
   function info() {
     contenuto.innerHTML = `
       <h2>Info</h2>
-      <p><strong>Creata da:</strong> Pepitos</p>
-      <p><a href="mailto:${EMAIL}?subject=Segnalazione%20TV%20Accessibile">Segnala un errore</a></p>
+      <p><strong>TV Accessibile</strong></p>
+      <p>Creata da Pepitos</p>
+      <p>
+        <a href="mailto:ottone_mamba4i@icloud.com?subject=Segnalazione%20errore%20TV%20Accessibile">
+          Segnala un errore
+        </a>
+      </p>
     `;
   }
+
+  /* ===================== GLOBALI ===================== */
+
+  window.__play = playChannel;
+  window.__fav = addPreferito;
 
   tabHome.onclick = home;
   tabLocali.onclick = locali;
