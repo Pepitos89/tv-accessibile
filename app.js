@@ -3,18 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const playerArea = document.getElementById("playerArea");
 
   const tabHome = document.getElementById("tab-home");
-  const tabPreferiti = document.getElementById("tab-preferiti");
   const tabLocali = document.getElementById("tab-locali");
+  const tabPreferiti = document.getElementById("tab-preferiti");
   const tabInfo = document.getElementById("tab-info");
 
   const EMAIL = "ottone_mamba4i@icloud.com";
   const PREF_KEY = "tvAccessibile_preferiti_v1";
 
-  let currentList = [];
+  let currentChannels = [];
 
   /* ---------- UTILS ---------- */
-  function isIOS() {
-    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  async function loadJSON(path) {
+    const r = await fetch(path, { cache: "no-store" });
+    if (!r.ok) throw new Error(path);
+    return r.json();
   }
 
   function escapeHtml(s) {
@@ -25,107 +27,79 @@ document.addEventListener("DOMContentLoaded", () => {
       .replaceAll('"', "&quot;");
   }
 
-  async function loadJSON(path) {
-    const r = await fetch(path, { cache: "no-store" });
-    if (!r.ok) throw new Error(path);
-    return r.json();
-  }
-
-  function focusPlayer() {
-    playerArea.setAttribute("tabindex", "-1");
-    playerArea.focus();
-    playerArea.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  /* ---------- PREFERITI ---------- */
-  function getPreferiti() {
-    try {
-      return JSON.parse(localStorage.getItem(PREF_KEY) || "[]");
-    } catch {
-      return [];
-    }
-  }
-
-  function savePreferiti(list) {
-    localStorage.setItem(PREF_KEY, JSON.stringify(list));
-  }
-
-  function channelId(ch) {
-    return (ch.type || "t") + "|" + (ch.url || ch.name || "");
-  }
-
-  function isPref(ch) {
-    return getPreferiti().some(x => x.id === channelId(ch));
-  }
-
-  function togglePref(ch) {
-    const id = channelId(ch);
-    const list = getPreferiti();
-    const i = list.findIndex(x => x.id === id);
-    if (i >= 0) list.splice(i, 1);
-    else list.push({ id, name: ch.name, lcn: ch.lcn ?? null });
-    savePreferiti(list);
-  }
-
-  /* ---------- STREAM URLS ---------- */
   function collectUrls(ch) {
     const out = [];
-    const push = (u) => { if (u && typeof u === "string" && !out.includes(u)) out.push(u); };
+    const add = u => { if (u && !out.includes(u)) out.push(u); };
 
-    push(ch.url);
-    if (ch.fallback?.url) push(ch.fallback.url);
-    if (ch.geoblock?.url) push(ch.geoblock.url);
+    add(ch.url);
+    if (ch.fallback?.url) add(ch.fallback.url);
+    if (ch.geoblock?.url) add(ch.geoblock.url);
     if (Array.isArray(ch.hbbtv)) {
-      for (const h of ch.hbbtv) if (h?.url) push(h.url);
+      ch.hbbtv.forEach(h => add(h.url));
     }
     return out;
   }
 
-  /* ---------- PLAYER ---------- */
-  function setPlayer(ch, url, note = "") {
-    const prefLabel = isPref(ch) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti";
+  /* ---------- PREFERITI ---------- */
+  function getPrefs() {
+    try { return JSON.parse(localStorage.getItem(PREF_KEY) || "[]"); }
+    catch { return []; }
+  }
 
+  function savePrefs(p) {
+    localStorage.setItem(PREF_KEY, JSON.stringify(p));
+  }
+
+  function isPref(ch) {
+    return getPrefs().includes(ch.name);
+  }
+
+  function togglePref(ch) {
+    const p = getPrefs();
+    const i = p.indexOf(ch.name);
+    if (i >= 0) p.splice(i, 1);
+    else p.push(ch.name);
+    savePrefs(p);
+  }
+
+  /* ---------- PLAYER ---------- */
+  function setPlayer(ch, url) {
     playerArea.innerHTML = `
       <h2>Player: ${escapeHtml(ch.name)}</h2>
-      <p>${escapeHtml(ch.lcn ? "LCN " + ch.lcn : "")}</p>
+      <p>${ch.lcn ? "LCN " + ch.lcn : ""}</p>
 
-      <video id="videoPlayer" controls playsinline style="width:100%;max-height:45vh;background:#000"></video>
+      <video controls autoplay playsinline style="width:100%;max-height:45vh;background:#000">
+        <source src="${url}">
+      </video>
 
-      <div style="margin-top:8px">
+      <p>
         <button id="btn-open">Apri streaming</button>
-        <button id="btn-pref">${prefLabel}</button>
-      </div>
-
-      <p id="note">${escapeHtml(note)}</p>
+        <button id="btn-pref">${isPref(ch) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}</button>
+      </p>
     `;
 
-    const video = document.getElementById("videoPlayer");
-    video.src = url;
-    video.autoplay = true;
-    video.play().catch(() => {});
-
     document.getElementById("btn-open").onclick = () => {
-      // apertura MANUALE, decisa dall’utente
-      window.location.href = url;
+      const u = encodeURIComponent(url);
+      const n = encodeURIComponent(ch.name);
+      window.location.href = `play.html?u=${u}&name=${n}`;
     };
 
     document.getElementById("btn-pref").onclick = () => {
       togglePref(ch);
-      document.getElementById("btn-pref").textContent =
-        isPref(ch) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti";
+      setPlayer(ch, url);
     };
 
-    focusPlayer();
+    playerArea.scrollIntoView({ behavior: "smooth" });
   }
 
-  /* ---------- RENDER LISTE ---------- */
-  function renderChannels(channels, titolo) {
-    currentList = channels;
+  /* ---------- RENDER ---------- */
+  function renderChannels(list, title) {
+    currentChannels = list;
 
     contenuto.innerHTML = `
-      <h2>${escapeHtml(titolo)}</h2>
+      <h2>${escapeHtml(title)}</h2>
       <ul>
-        ${channels.map((ch, i) => `
+        ${list.map((ch, i) => `
           <li style="margin-bottom:10px">
             <strong>${escapeHtml((ch.lcn ? ch.lcn + " " : "") + ch.name)}</strong>
             <button data-play="${i}">Riproduci</button>
@@ -135,47 +109,28 @@ document.addEventListener("DOMContentLoaded", () => {
       </ul>
     `;
 
-    contenuto.querySelectorAll("button[data-play]").forEach(btn => {
-      btn.onclick = () => {
-        const ch = currentList[Number(btn.dataset.play)];
+    contenuto.querySelectorAll("button[data-play]").forEach(b => {
+      b.onclick = () => {
+        const ch = currentChannels[b.dataset.play];
         const urls = collectUrls(ch);
-        if (!urls.length) return;
-
-        setPlayer(
-          ch,
-          urls[0],
-          isIOS()
-            ? "Su Safari alcuni canali potrebbero non partire: usa 'Apri streaming'."
-            : ""
-        );
+        if (urls.length) setPlayer(ch, urls[0]);
       };
     });
 
-    contenuto.querySelectorAll("button[data-pref]").forEach(btn => {
-      btn.onclick = () => {
-        const ch = currentList[Number(btn.dataset.pref)];
-        togglePref(ch);
+    contenuto.querySelectorAll("button[data-pref]").forEach(b => {
+      b.onclick = () => {
+        togglePref(currentChannels[b.dataset.pref]);
       };
     });
   }
 
   /* ---------- SEZIONI ---------- */
-  async function mostraHome() {
-    playerArea.innerHTML = `<h2>Player</h2><p>Nessun canale selezionato.</p>`;
-    contenuto.innerHTML = `<p>Caricamento…</p>`;
+  async function home() {
     const d = await loadJSON("data/nazionali.json");
     renderChannels(d.channels, "Nazionali");
   }
 
-  async function caricaRegione(id) {
-    try {
-      return await loadJSON("locali/" + id + ".json");
-    } catch {
-      return await loadJSON("data/regioni/" + id + ".json");
-    }
-  }
-
-  function mostraLocali() {
+  async function locali() {
     const regioni = [
       "abruzzo","basilicata","calabria","campania","emilia-romagna",
       "friuli-venezia-giulia","lazio","liguria","lombardia","marche",
@@ -188,26 +143,25 @@ document.addEventListener("DOMContentLoaded", () => {
       <ul>
         ${regioni.map(r => `<li><button data-r="${r}">${r}</button></li>`).join("")}
       </ul>
-      <div id="loc"></div>
     `;
 
-    document.querySelectorAll("button[data-r]").forEach(b => {
+    contenuto.querySelectorAll("button[data-r]").forEach(b => {
       b.onclick = async () => {
-        const d = await caricaRegione(b.dataset.r);
+        const d = await loadJSON("data/regioni/" + b.dataset.r + ".json");
         renderChannels(d.channels, b.dataset.r);
       };
     });
   }
 
-  function mostraPreferiti() {
-    const p = getPreferiti();
+  function preferiti() {
+    const p = getPrefs();
     contenuto.innerHTML =
       "<h2>Preferiti</h2>" +
-      (p.length ? "<ul>" + p.map(x => `<li>${escapeHtml(x.name)}</li>`).join("") + "</ul>"
+      (p.length ? "<ul>" + p.map(x => `<li>${escapeHtml(x)}</li>`).join("") + "</ul>"
                 : "<p>Nessun preferito</p>");
   }
 
-  function mostraInfo() {
+  function info() {
     contenuto.innerHTML = `
       <h2>Info</h2>
       <p><strong>Creata da:</strong> Pepitos</p>
@@ -215,10 +169,10 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  tabHome.onclick = mostraHome;
-  tabLocali.onclick = mostraLocali;
-  tabPreferiti.onclick = mostraPreferiti;
-  tabInfo.onclick = mostraInfo;
+  tabHome.onclick = home;
+  tabLocali.onclick = locali;
+  tabPreferiti.onclick = preferiti;
+  tabInfo.onclick = info;
 
-  mostraHome();
+  home();
 });
