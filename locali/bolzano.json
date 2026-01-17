@@ -1,0 +1,1266 @@
+{
+    "$schema": "../../../schema.json",
+    "channels": [
+        {
+            "lcn": 3,
+            "logo": "rai3.svg",
+            "name": "Rai 3 TGR Bolzano",
+            "type": "hls",
+            "url": "https://tgrbolzano-live.akamaized.net/hls/live/2025560/tgrbolzano/tgrbolzano/playlist.m3u8",
+            "epg": {
+                "source": "raiplay",
+                "id": "rai-3"
+            },
+            "manualRestart": {
+                "source": "rai",
+                "id": "rai-3"
+            },
+            "geoblock": true
+        },
+        {
+            "lcn": 10,
+            "logo": "trentinotv",
+            "name": "Trentino TV",
+            "type": "hls",
+            "url": "https://5e73cf528f404.streamlock.net/TrentinoTV/livestream/playlist.m3u8",
+            "epg": {
+                "source": "uvotv",
+                "id": "TRENTINO_it"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "altoadigetv",
+                "name": "Alto Adige TV",
+                "type": "hls",
+                "url": "https://5f204aff97bee.streamlock.net/AltoAdigeTV/livestream/playlist.m3u8"
+            },
+            {
+                "sublcn": 2,
+                "logo": "meteotrentino",
+                "name": "Meteotrentino",
+                "type": "hls",
+                "url": "zappr://rubidia/trentinotv/selector/37/67",
+                "ondemand": true
+            },
+            {
+                "sublcn": 3,
+                "logo": "viaggiareintrentino",
+                "name": "Viaggiare in Trentino",
+                "type": "hls",
+                "url": "zappr://rubidia/trentinotv/selector/37/68",
+                "ondemand": true
+            },
+            {
+                "categorySeparator": "Radio MediaDAB"
+            },
+            {
+                "sublcn": 4,
+                "logo": "radiosystem",
+                "name": "Radio System",
+                "type": "dash",
+                "url": "https://srvx1.selftv.video/systemtv/smil:live/manifest.mpd"
+            },
+            {
+                "sublcn": 5,
+                "logo": "anni90",
+                "name": "Anni 90",
+                "type": "dash",
+                "url": "https://585b674743bbb.streamlock.net/9076/9076/manifest.mpd"
+            },
+            {
+                "sublcn": 6,
+                "logo": "radiosportiva.svg",
+                "name": "Radio Sportiva",
+                "type": "audio",
+                "url": "https://sportiva.inmystream.it/stream/sportiva"
+            },
+            {
+                "sublcn": 7,
+                "logo": "radiobruno",
+                "name": "Radio Bruno",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video0s975758-473/stream/playlist.m3u8",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "Radio BRUNO.tvprofile_it"
+                }
+            },
+            {
+                "sublcn": 8,
+                "logo": "virgoradio.svg",
+                "name": "Virgo Radio",
+                "radio": "video",
+                "type": "dash",
+                "url": "https://customer-xflzzxvdbnuktbj0.cloudflarestream.com/c0d122789b82e0d0c85daeef7ad9e7c9/manifest/video.mpd"        
+            },
+            {
+                "sublcn": 9,
+                "logo": "funkyradio",
+                "name": "FUNKY.radio",
+                "radio": true,
+                "type": "hls",
+                "url": "https://my.streamingmedia.it/hls/funkyradio_hls/live.m3u8"
+            },
+            {
+                "sublcn": 10,
+                "logo": "sunbeat",
+                "name": "Radio Sunbeat",
+                "type": "audio",
+                "url": "https://stream.rcs.revma.com/2vke97f39yuvv?type=.aac"
+            },
+            {
+                "sublcn": 11,
+                "logo": "radio906",
+                "name": "Radio 906",
+                "type": "audio",
+                "url": "https://stream.rcs.revma.com/w231bbg39yuvv?type=.aac"
+            },
+            {
+                "sublcn": 12,
+                "logo": "radiofiemme",
+                "name": "Radio Fiemme",
+                "radio": true,
+                "type": "dash",
+                "url": "https://nrvideo1.newradio.it:1936/rxhqtspjsp/rxhqtspjsp.stream/manifest.mpd"  
+            },
+            {
+                "sublcn": 13,
+                "logo": "rvs",
+                "name": "RVS",
+                "radio": true,
+                "type": "hls",
+                "url": "https://stream9.xdevel.com/audio0s978363-2600/stream/playlist.m3u8"                
+            },
+            {
+                "sublcn": 14,
+                "logo": "radiogemini",
+                "name": "Radio Gemini",
+                "type": "audio",
+                "url": "https://geminione.it/proxy/gemini/stream"
+            },
+            {
+                "sublcn": 15,
+                "logo": "radiocafè",
+                "name": "Radio Cafè",
+                "type": "audio",
+                "url": "https://geminione.it/proxy/test/stream"  
+            }]
+        },
+        {
+            "lcn": 11,
+            "logo": "altoadigetv",
+            "name": "Alto Adige TV",
+            "type": "hls",
+            "url": "https://5f204aff97bee.streamlock.net/AltoAdigeTV/livestream/playlist.m3u8",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "trentinotv",
+                "name": "Trentino TV",
+                "type": "hls",
+                "url": "https://5e73cf528f404.streamlock.net/TrentinoTV/livestream/playlist.m3u8",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "TRENTINO_it"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "meteotrentino",
+                "name": "Meteotrentino",
+                "type": "hls",
+                "url": "zappr://rubidia/trentinotv/selector/37/67",
+                "ondemand": true
+            },
+            {
+                "sublcn": 3,
+                "logo": "viaggiareintrentino",
+                "name": "Viaggiare in Trentino",
+                "type": "hls",
+                "url": "zappr://rubidia/trentinotv/selector/37/68",
+                "ondemand": true
+            },
+            {
+                "categorySeparator": "Radio MediaDAB"
+            },
+            {
+                "sublcn": 4,
+                "logo": "radiosystem",
+                "name": "Radio System",
+                "type": "dash",
+                "url": "https://srvx1.selftv.video/systemtv/smil:live/manifest.mpd"
+            },
+            {
+                "sublcn": 5,
+                "logo": "anni90",
+                "name": "Anni 90",
+                "type": "dash",
+                "url": "https://585b674743bbb.streamlock.net/9076/9076/manifest.mpd"
+            },
+            {
+                "sublcn": 6,
+                "logo": "radiosportiva.svg",
+                "name": "Radio Sportiva",
+                "type": "audio",
+                "url": "https://sportiva.inmystream.it/stream/sportiva"
+            },
+            {
+                "sublcn": 7,
+                "logo": "radiobruno",
+                "name": "Radio Bruno",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video0s975758-473/stream/playlist.m3u8",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "Radio BRUNO.tvprofile_it"
+                }
+            },
+            {
+                "sublcn": 8,
+                "logo": "virgoradio.svg",
+                "name": "Virgo Radio",
+                "radio": "video",
+                "type": "dash",
+                "url": "https://customer-xflzzxvdbnuktbj0.cloudflarestream.com/c0d122789b82e0d0c85daeef7ad9e7c9/manifest/video.mpd"        
+            },
+            {
+                "sublcn": 9,
+                "logo": "funkyradio",
+                "name": "FUNKY.radio",
+                "radio": true,
+                "type": "hls",
+                "url": "https://my.streamingmedia.it/hls/funkyradio_hls/live.m3u8"
+            },
+            {
+                "sublcn": 10,
+                "logo": "sunbeat",
+                "name": "Radio Sunbeat",
+                "type": "audio",
+                "url": "https://stream.rcs.revma.com/2vke97f39yuvv?type=.aac"
+            },
+            {
+                "sublcn": 11,
+                "logo": "radio906",
+                "name": "Radio 906",
+                "type": "audio",
+                "url": "https://stream.rcs.revma.com/w231bbg39yuvv?type=.aac"
+            },
+            {
+                "sublcn": 12,
+                "logo": "radiofiemme",
+                "name": "Radio Fiemme",
+                "radio": true,
+                "type": "dash",
+                "url": "https://nrvideo1.newradio.it:1936/rxhqtspjsp/rxhqtspjsp.stream/manifest.mpd"  
+            },
+            {
+                "sublcn": 13,
+                "logo": "rvs",
+                "name": "RVS",
+                "radio": true,
+                "type": "hls",
+                "url": "https://stream9.xdevel.com/audio0s978363-2600/stream/playlist.m3u8"                
+            },
+            {
+                "sublcn": 14,
+                "logo": "radiogemini",
+                "name": "Radio Gemini",
+                "type": "audio",
+                "url": "https://geminione.it/proxy/gemini/stream"
+            },
+            {
+                "sublcn": 15,
+                "logo": "radiocafè",
+                "name": "Radio Cafè",
+                "type": "audio",
+                "url": "https://geminione.it/proxy/test/stream"  
+            }]
+        },
+        {
+            "lcn": 12,
+            "logo": "peertv.svg",
+            "name": "Peer.tv",
+            "subtitle": "(in tedesco)",
+            "type": "hls",
+            "url": "https://iptv.peer.biz/live/peertv.m3u8",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "peertv.svg",
+                "name": "Peer.tv",
+                "subtitle": "(in italiano)",
+                "type": "hls",
+                "url": "https://iptv.peer.biz/live/peertv-it.m3u8"
+            },
+            {
+                "sublcn": 2,
+                "logo": "peertv.svg",
+                "name": "Peer.tv",
+                "subtitle": "(in inglese)",
+                "type": "hls",
+                "url": "https://iptv.peer.biz/live/peertv-en.m3u8"
+            }]
+        },
+        {
+            "lcn": 14,
+            "logo": "rttr",
+            "name": "RTTR",
+            "hd": true,
+            "type": "hls",
+            "url": "https://rttr.fluid.stream/RTTRlive/livestream/playlist.m3u8",
+            "epg": {
+                "source": "uvotv",
+                "id": "RTTR_it"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "rttlaradio",
+                "name": "RTT La Radio",
+                "type": "audio",
+                "url": "https://str01.fluidstream.net/rtt.mp3"
+            }]
+        },
+        {
+            "lcn": 18,
+            "logo": "telechiara",
+            "name": "Telechiara",
+            "type": "dash",
+            "url": "https://fms.telemar.it:1936/telechiara/diretta/manifest.mpd",
+            "epg": {
+                "source": "videomedia",
+                "id": "C"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "tvavicenza.svg",
+                "name": "TVA Vicenza",
+                "hd": true,
+                "type": "dash",
+                "url": "https://fms.telemar.it:1936/live/diretta_1/manifest.mpd",
+                "epg": {
+                    "source": "videomedia",
+                    "id": "E"
+                }
+            }]
+        },
+        {
+            "lcn": 19,
+            "logo": "tv33.svg",
+            "name": "TV33 Bolzano",
+            "type": "hls",
+            "url": "https://64b16f23efbee.streamlock.net/tv33bz/tv33bz/playlist.m3u8",
+            "epg": {
+                "source": "tv33",
+                "id": "alto-adige"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "tv33.svg",
+                "name": "TV33 Trento",
+                "type": "hls",
+                "url": "https://64b16f23efbee.streamlock.net/tv33tn/tv33tn/playlist.m3u8",
+                "epg": {
+                    "source": "tv33",
+                    "id": "trentino"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "telecolor.svg",
+                "name": "Telecolor",
+                "hd": true,
+                "type": "dash",
+                "url": "https://1aadf145546f475282c5b4e658c0ac4b.msvdn.net/live/324149/hlbAWtl/manifest.mpd",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "TELECOLOR.tvprofil_it"
+                }
+            },
+            {
+                "sublcn": 3,
+                "logo": "ètvrete7.svg",
+                "name": "èTV Rete 7",
+                "type": "dash",
+                "url": "https://live.ipstream.it/etv/etv.stream/manifest.mpd",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "eTV Rete 7.tvprofil_it"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "ètvmarche.svg",
+                "name": "èTV Marche",
+                "type": "dash",
+                "url": "https://live.ipstream.it/etvmarche/etvmarche.stream/manifest.mpd",
+                "epg": {
+                    "source": "ètv",
+                    "id": "Palinsesto_Marche"
+                }
+            },
+            {
+                "sublcn": 5,
+                "logo": "laziotv.svg",
+                "name": "Lazio TV",
+                "hd": true,
+                "type": "hls",
+                "url": "https://streaming.softwarecreation.it/LazioTv/LazioTv/playlist.m3u8",
+                "epg": {
+                    "source": "softwarecreation",
+                    "id": "LazioTv"
+                }
+            },
+            {
+                "sublcn": 6,
+                "logo": "goldtv.svg",
+                "name": "Gold TV",
+                "hd": true,
+                "type": "hls",
+                "url": "https://streaming.softwarecreation.it/GoldTv/GoldTv/playlist.m3u8",
+                "epg": {
+                    "source": "softwarecreation",
+                    "id": "GoldTv"
+                }
+            }]
+        },
+        {
+            "lcn": 84,
+            "logo": "servustv.svg",
+            "name": "ServusTV",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/servustvhd/browser-HLS8/servustvhd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "381"
+            }
+        },
+        {
+            "lcn": 86,
+            "logo": "daserste.svg",
+            "name": "Das Erste",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/daserstehd/browser-HLS8/daserstehd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "25"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "br.svg",
+                "name": "BR Süd",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/brhdsud/browser-HLS8/brhdsud.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "55"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "hr.svg",
+                "name": "HR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/hr/browser-HLS8/hr.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "205"
+                }
+            },
+            {
+                "sublcn": 3,
+                "logo": "mdr.svg",
+                "name": "MDR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/mdr/browser-HLS8/mdr.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "256"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "ndr.svg",
+                "name": "NDR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/ndr/browser-HLS8/ndr.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "286"
+                }
+            },
+            {
+                "sublcn": 6,
+                "logo": "rbb.svg",
+                "name": "rbb",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rbb/browser-HLS8/rbb.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "342"
+                }
+            },
+            {
+                "sublcn": 7,
+                "logo": "sr.svg",
+                "name": "SR",
+                "subtitle": "Visibili solo i programmi senza geoblocking",
+                "hd": true,
+                "type": "hls",
+                "url": "https://srfs.akamaized.net/hls/live/689649/srfsgeo/index.m3u8",
+                "epg": {
+                    "source": "blue",
+                    "id": "1502"
+                }
+            },
+            {
+                "sublcn": 8,
+                "logo": "swr.svg",
+                "name": "SWR Baden-Württemberg",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/swrbw/browser-HLS8/swrbw.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "414"
+                }
+            },
+            {
+                "sublcn": 9,
+                "logo": "wdr.svg",
+                "name": "WDR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/wdrhd/browser-HLS8/wdrhd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "654"
+                }
+            },
+            {
+                "sublcn": 10,
+                "logo": "one.svg",
+                "name": "ONE",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/onehd/browser-HLS8/onehd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "147"
+                }
+            },
+            {
+                "sublcn": 11,
+                "logo": "arte.svg",
+                "name": "ARTE",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/artehd/browser-HLS8/artehd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "28"
+                }
+            },
+            {
+                "sublcn": 12,
+                "logo": "kika.svg",
+                "name": "KiKA",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/kikahd/browser-HLS8/kikahd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "228"
+                }
+            },
+            {
+                "sublcn": 13,
+                "logo": "3sat.svg",
+                "name": "3sat",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/3sathd/browser-HLS8/3sathd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "6"
+                }
+            },
+            {
+                "sublcn": 14,
+                "logo": "bralpha.svg",
+                "name": "BR Alpha",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/bralpha/browser-HLS8/bralpha.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "26"
+                }
+            },
+            {
+                "sublcn": 15,
+                "logo": "tagesschau24.svg",
+                "name": "tagesschau24",
+                "hd": true,
+                "type": "hls",
+                "url": "https://tagesschau.akamaized.net/hls/live/2020115/tagesschau/tagesschau_1/master.m3u8",
+                "epg": {
+                    "source": "blue",
+                    "id": "417"
+                }
+            },
+            {
+                "sublcn": 16,
+                "logo": "phoenix.svg",
+                "name": "Phoenix",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/phoenixhd/browser-HLS8/phoenixhd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "307"
+                }
+            },
+            {
+                "sublcn": 17,
+                "logo": "dw.svg",
+                "name": "Deutsche Welle",
+                "hd": true,
+                "type": "hls",
+                "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8",
+                "epg": {
+                    "source": "blue",
+                    "id": "142"
+                }
+            }]
+        },
+        {
+            "lcn": 87,
+            "logo": "zdf.svg",
+            "name": "ZDF",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/zdfhd/browser-HLS8/zdfhd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "656"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "zdfneo.svg",
+                "name": "ZDFneo",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/zdfneohd/browser-HLS8/zdfneohd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "659"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "zdfinfo.svg",
+                "name": "ZDFinfo",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/zdfinfohd/browser-HLS8/zdfinfohd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "658"
+                }
+            }]
+        },
+        {
+            "lcn": 88,
+            "logo": "orf1.svg",
+            "name": "ORF 1",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/orf1/browser-HLS8/orf1.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "303"
+            }
+        },
+        {
+            "lcn": 89,
+            "logo": "orf2.svg",
+            "name": "ORF 2",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/orf2/browser-HLS8/orf2.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "302"
+            }
+        },
+        {
+            "lcn": 90,
+            "logo": "orf3.svg",
+            "name": "ORF 3",
+            "subtitle": "Visibili solo i programmi senza geoblocking",
+            "hd": true,
+            "type": "hls",
+            "url": "https://orf3-247.mdn.ors.at/orf/orf3/qxa-247/playlist.m3u8",
+            "epg": {
+                "source": "blue",
+                "id": "1222"
+            }
+        },
+        {
+            "lcn": 92,
+            "logo": "srf1.svg",
+            "name": "SRF 1",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/srf1hd/browser-HLS8/srf1hd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "399"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "srfzwei.svg",
+                "name": "SRF Zwei",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/srf2hd/browser-HLS8/srf2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "401"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "rts1.svg",
+                "name": "RTS 1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rts1hd/browser-HLS8/rts1hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "369"
+                }
+            },
+            {
+                "sublcn": 3,
+                "logo": "rts2.svg",
+                "name": "RTS 2",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rts2hd/browser-HLS8/rts2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "367"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "rsila1.svg",
+                "name": "RSI LA1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rsila1hd/browser-HLS8/rsila1hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "356"
+                }
+            },
+            {
+                "sublcn": 5,
+                "logo": "rsila2.svg",
+                "name": "RSI LA2",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rsila2hd/browser-HLS8/rsila2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "357"
+                }
+            }]
+        },
+        {
+            "lcn": 93,
+            "logo": "srfzwei.svg",
+            "name": "SRF Zwei",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/srf2hd/browser-HLS8/srf2hd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "401"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "srf1.svg",
+                "name": "SRF 1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/srf1hd/browser-HLS8/srf1hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "399"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "rts1.svg",
+                "name": "RTS 1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rts1hd/browser-HLS8/rts1hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "369"
+                }
+            },
+            {
+                "sublcn": 3,
+                "logo": "rts2.svg",
+                "name": "RTS 2",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rts2hd/browser-HLS8/rts2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "367"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "rsila1.svg",
+                "name": "RSI LA1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rsila1hd/browser-HLS8/rsila1hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "356"
+                }
+            },
+            {
+                "sublcn": 5,
+                "logo": "rsila2.svg",
+                "name": "RSI LA2",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rsila2hd/browser-HLS8/rsila2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "357"
+                }
+            }]
+        },
+        {
+            "lcn": 94,
+            "logo": "zdfneo.svg",
+            "name": "ZDFneo",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/zdfneohd/browser-HLS8/zdfneohd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "659"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "zdf.svg",
+                "name": "ZDF",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/zdfhd/browser-HLS8/zdfhd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "656"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "zdfinfo.svg",
+                "name": "ZDFinfo",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/zdfinfohd/browser-HLS8/zdfinfohd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "658"
+                }
+            }]
+        },
+        {
+            "lcn": 95,
+            "logo": "3sat.svg",
+            "name": "3sat",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/3sathd/browser-HLS8/3sathd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "6"
+            }
+        },
+        {
+            "lcn": 96,
+            "logo": "br.svg",
+            "name": "BR Süd",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/brhdsud/browser-HLS8/brhdsud.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "55"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "daserste.svg",
+                "name": "Das Erste",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/daserstehd/browser-HLS8/daserstehd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "25"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "hr.svg",
+                "name": "HR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/hr/browser-HLS8/hr.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "205"
+                }
+            },
+            {
+                "sublcn": 3,
+                "logo": "mdr.svg",
+                "name": "MDR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/mdr/browser-HLS8/mdr.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "256"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "ndr.svg",
+                "name": "NDR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/ndr/browser-HLS8/ndr.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "286"
+                }
+            },
+            {
+                "sublcn": 6,
+                "logo": "rbb.svg",
+                "name": "rbb",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rbb/browser-HLS8/rbb.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "342"
+                }
+            },
+            {
+                "sublcn": 7,
+                "logo": "sr.svg",
+                "name": "SR",
+                "subtitle": "Visibili solo i programmi senza geoblocking",
+                "hd": true,
+                "type": "hls",
+                "url": "https://srfs.akamaized.net/hls/live/689649/srfsgeo/index.m3u8",
+                "epg": {
+                    "source": "blue",
+                    "id": "1502"
+                }
+            },
+            {
+                "sublcn": 8,
+                "logo": "swr.svg",
+                "name": "SWR Baden-Württemberg",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/swrbw/browser-HLS8/swrbw.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "414"
+                }
+            },
+            {
+                "sublcn": 9,
+                "logo": "wdr.svg",
+                "name": "WDR",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/wdrhd/browser-HLS8/wdrhd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "654"
+                }
+            },
+            {
+                "sublcn": 10,
+                "logo": "one.svg",
+                "name": "ONE",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/onehd/browser-HLS8/onehd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "147"
+                }
+            },
+            {
+                "sublcn": 11,
+                "logo": "arte.svg",
+                "name": "ARTE",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/artehd/browser-HLS8/artehd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "28"
+                }
+            },
+            {
+                "sublcn": 12,
+                "logo": "kika.svg",
+                "name": "KiKA",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/kikahd/browser-HLS8/kikahd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "228"
+                }
+            },
+            {
+                "sublcn": 13,
+                "logo": "3sat.svg",
+                "name": "3sat",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/3sathd/browser-HLS8/3sathd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "6"
+                }
+            },
+            {
+                "sublcn": 14,
+                "logo": "bralpha.svg",
+                "name": "BR Alpha",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/bralpha/browser-HLS8/bralpha.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "26"
+                }
+            },
+            {
+                "sublcn": 15,
+                "logo": "tagesschau24.svg",
+                "name": "tagesschau24",
+                "hd": true,
+                "type": "hls",
+                "url": "https://tagesschau.akamaized.net/hls/live/2020115/tagesschau/tagesschau_1/master.m3u8",
+                "epg": {
+                    "source": "blue",
+                    "id": "417"
+                }
+            },
+            {
+                "sublcn": 16,
+                "logo": "phoenix.svg",
+                "name": "Phoenix",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/phoenixhd/browser-HLS8/phoenixhd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "307"
+                }
+            },
+            {
+                "sublcn": 17,
+                "logo": "dw.svg",
+                "name": "Deutsche Welle",
+                "hd": true,
+                "type": "hls",
+                "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8",
+                "epg": {
+                    "source": "blue",
+                    "id": "142"
+                }
+            }]
+        },
+        {
+            "lcn": 97,
+            "logo": "kika.svg",
+            "name": "KiKA",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/kikahd/browser-HLS8/kikahd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "228"
+            }
+        },
+        {
+            "lcn": 98,
+            "logo": "arte.svg",
+            "name": "ARTE",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/artehd/browser-HLS8/artehd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "28"
+            }
+        },
+        {
+            "lcn": 99,
+            "logo": "rsila1.svg",
+            "name": "RSI LA1",
+            "hd": true,
+            "type": "hls",
+            "url": "https://viamotionhsi.netplus.ch/live/eds/rsila1hd/browser-HLS8/rsila1hd.m3u8",
+            "api": "cloudflare",
+            "epg": {
+                "source": "blue",
+                "id": "356"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "rsila2.svg",
+                "name": "RSI LA2",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rsila2hd/browser-HLS8/rsila2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "357"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "rts1.svg",
+                "name": "RTS 1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rts1hd/browser-HLS8/rts1hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "369"
+                }
+            },
+            {
+                "sublcn": 3,
+                "logo": "rts2.svg",
+                "name": "RTS 2",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/rts2hd/browser-HLS8/rts2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "367"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "srf1.svg",
+                "name": "SRF 1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/srf1hd/browser-HLS8/srf1hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "399"
+                }
+            },
+            {
+                "sublcn": 5,
+                "logo": "srfzwei.svg",
+                "name": "SRF Zwei",
+                "hd": true,
+                "type": "hls",
+                "url": "https://viamotionhsi.netplus.ch/live/eds/srf2hd/browser-HLS8/srf2hd.m3u8",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "blue",
+                    "id": "401"
+                }
+            }]
+        }
+    ]
+}

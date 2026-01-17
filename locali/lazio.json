@@ -1,0 +1,1033 @@
+{
+    "$schema": "../../../schema.json",
+    "channels": [
+        {
+            "lcn": 3,
+            "logo": "rai3.svg",
+            "name": "Rai 3 TGR Lazio",
+            "type": "hls",
+            "url": "https://tgrlazio-live.akamaized.net/hls/live/2025147/tgrlazio/tgrlazio/playlist.m3u8",
+            "epg": {
+                "source": "raiplay",
+                "id": "rai-3"
+            },
+            "manualRestart": {
+                "source": "rai",
+                "id": "rai-3"
+            },
+            "geoblock": true
+        },
+        {
+            "lcn": 10,
+            "logo": "canale10",
+            "name": "Canale 10",
+            "hd": true,
+            "type": "dash",
+            "url": "https://nrvideo1.newradio.it:1936/desxcerbht/desxcerbht/manifest.mpd",
+            "epg": {
+                "source": "canaledieci",
+                "id": "canale-dieci"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "standbytv",
+                "name": "Standby TV",
+                "type": "dash",
+                "url": "https://5926fc9c7c5b2.streamlock.net/standbytv/standbytv/manifest.mpd"
+            },
+            {
+                "sublcn": 2,
+                "logo": "sl48",
+                "name": "SL48",
+                "type": "dash",
+                "url": "https://streaming.softwarecreation.it/sl48/sl48/manifest.mpd",
+                "cssfix": "very-squashed-height"
+            },
+            {
+                "sublcn": 3,
+                "logo": "standbyradiotv",
+                "name": "Standby Radio TV",
+                "type": "dash",
+                "url": "https://5926fc9c7c5b2.streamlock.net/transit/transit/manifest.mpd"
+            },
+            {
+                "sublcn": 4,
+                "logo": "larockaforte",
+                "name": "La Rockaforte TV",
+                "type": "dash",
+                "url": "https://5926fc9c7c5b2.streamlock.net/npwsqkmzjp/npwsqkmzjp/manifest.mpd"
+            },
+            {
+                "sublcn": 5,
+                "logo": "easyanditaly",
+                "name": "Easy & Italy",
+                "type": "dash",
+                "url": "https://5926fc9c7c5b2.streamlock.net/bjxypgjasy/bjxypgjasy/manifest.mpd"
+            },
+            {
+                "sublcn": 6,
+                "logo": "radiosalsa4te",
+                "name": "Radio Salsa4te",
+                "type": "audio",
+                "url": "https://radiomusic.newradio.it/salsa4te"
+            },
+            {
+                "sublcn": 7,
+                "logo": "radiodancemusic",
+                "name": "Radio Dance Music",
+                "type": "audio",
+                "url": "https://radiomusic.newradio.it/dancemusic"
+            },
+            {
+                "sublcn": 8,
+                "logo": "radiocorederoma",
+                "name": "Radio Core de Roma",
+                "type": "hls",
+                "url": "https://stream3.aswifi.it/radiocore/live/index.m3u8"
+            }]
+        },
+        {
+            "lcn": 11,
+            "logo": "goldtv.svg",
+            "name": "Gold TV",
+            "hd": true,
+            "type": "hls",
+            "url": "https://streaming.softwarecreation.it/GoldTv/GoldTv/playlist.m3u8",
+            "epg": {
+                "source": "softwarecreation",
+                "id": "GoldTv"
+            }
+        },
+        {
+            "lcn": 12,
+            "logo": "teleuniverso",
+            "name": "Teleuniverso",
+            "hd": true,
+            "type": "hls",
+            "url": "https://stream.ets-sistemi.it:19360/teleuniverso/teleuniverso.m3u8",
+            "epg": {
+                "source": "digitalbitrate",
+                "id": "tro/TRO_CH27_6803"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "teleuniverso+1",
+                "name": "Teleuniverso +1",
+                "hd": true,
+                "type": "hls",
+                "url": "https://stream.ets-sistemi.it:19360/teleuniverso1/teleuniverso1.m3u8"
+            },
+            {
+                "sublcn": 2,
+                "logo": "tguniverso",
+                "name": "Ultimo TG Universo",
+                "hd": true,
+                "ondemand": true,
+                "type": "direct",
+                "url": "https://www.teleuniverso.tv/VIDEO/TG/TGTU.mp4"
+            },
+            {
+                "sublcn": 3,
+                "logo": "tuday",
+                "name": "TU Day",
+                "type": "hls",
+                "url": "https://stream.ets-sistemi.it:19360/tuday/tuday.m3u8"
+            }]
+        },
+        {
+            "lcn": 13,
+            "logo": "laziotv.svg",
+            "name": "Lazio TV",
+            "hd": true,
+            "type": "hls",
+            "url": "https://streaming.softwarecreation.it/LazioTv/LazioTv/playlist.m3u8",
+            "epg": {
+                "source": "softwarecreation",
+                "id": "LazioTv"
+            }
+        },
+        {
+            "lcn": 14,
+            "logo": "radioromanews",
+            "name": "Radio Roma News",
+            "type": "hls",
+            "url": "https://www.dailymotion.com/video/x96kf9k",
+            "api": "cloudflare"
+        },
+        {
+            "lcn": 15,
+            "logo": "radioroma",
+            "name": "Radio Roma",
+            "type": "hls",
+            "url": "https://www.dailymotion.com/video/x96kfby",
+            "api": "cloudflare",
+            "epg": {
+                "source": "set",
+                "id": "radioroma"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "canale19frosinone",
+                "name": "Canale 19 Frosinone",
+                "type": "hls",
+                "url": "https://5a1178b42cc03.streamlock.net/RRomaNetwork/RRomaNetwork/playlist.m3u8"
+            },
+            {
+                "sublcn": 2,
+                "logo": "rc88.svg",
+                "name": "RC88",
+                "type": "hls",
+                "url": "https://giatv.bozztv.com/giatv/giatv-centroitalia/centroitalia/playlist.m3u8"
+            },
+            {
+                "sublcn": 3,
+                "logo": "supertv",
+                "name": "SuperTV",
+                "type": "dash",
+                "url": "https://cdn12.streamshow.it/hbbtv-supertv/supertv/manifest.mpd" 
+            },
+            {
+                "sublcn": 4,
+                "logo": "canale81lazio",
+                "name": "Canale 81 Lazio",
+                "type": "dash",
+                "url": "https://5f22d76e220e1.streamlock.net/canale81lazio/canale81lazio/manifest.mpd",
+                "cssfix": "squashed-height"
+            },
+            {
+                "sublcn": 5,
+                "logo": "radioantennaverde",
+                "name": "Radio Antenna Verde",
+                "type": "dash",
+                "url": "https://585b674743bbb.streamlock.net/9002/9002/manifest.mpd"
+            }]
+        },
+        {
+            "lcn": 16,
+            "logo": "teleroma56",
+            "name": "Teleroma 56",
+            "subtitle": "Attivo solo durante alcuni programmi",
+            "type": "twitch",
+            "url": "teleroma_56"
+        },
+        {
+            "lcn": 17,
+            "logo": "t9",
+            "name": "T9",
+            "type": "hls",
+            "url": "https://streaming.softwarecreation.it/tnove/tnove/playlist.m3u8",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "canale21",
+                "name": "Canale 21",
+                "type": "dash",
+                "url": "https://0ff9dd7fe9b64bc08a5fc4ed525454c3.msvdn.net/live/S38994111/B7j0ql4XaZtE/manifest.mpd",
+                "epg": {
+                    "source": "digitalbitrate",
+                    "id": "nap/NAP_CH41_8001"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "canale21extra",
+                "name": "Canale 21 Extra",
+                "type": "dash",
+                "url": "https://0ff9dd7fe9b64bc08a5fc4ed525454c3.msvdn.net/live/S42170132/sT6C3LFaD1iA/manifest.mpd"
+            },
+            {
+                "sublcn": 3,
+                "logo": "italia7.svg",
+                "name": "Italia 7",
+                "type": "dash",
+                "url": "https://streaming.softwarecreation.it/Italia7/Italia7/manifest.mpd",
+                "cssfix": "stretch"
+            },
+            {
+                "sublcn": 4,
+                "logo": "telecolor.svg",
+                "name": "Telecolor",
+                "hd": true,
+                "type": "dash",
+                "url": "https://1aadf145546f475282c5b4e658c0ac4b.msvdn.net/live/324149/hlbAWtl/manifest.mpd",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "TELECOLOR.tvprofil_it"
+                }
+            },
+            {
+                "sublcn": 5,
+                "logo": "telegenova.svg",
+                "name": "Telegenova",
+                "type": "hls",
+                "url": "https://64b16f23efbee.streamlock.net/telegenova/telegenova/playlist.m3u8"
+            },
+            {
+                "sublcn": 6,
+                "logo": "ètvrete7.svg",
+                "name": "èTV Rete 7",
+                "type": "dash",
+                "url": "https://live.ipstream.it/etv/etv.stream/manifest.mpd",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "eTV Rete 7.tvprofil_it"
+                }
+            },
+            {
+                "sublcn": 7,
+                "logo": "ètvmarche.svg",
+                "name": "èTV Marche",
+                "type": "dash",
+                "url": "https://live.ipstream.it/etvmarche/etvmarche.stream/manifest.mpd",
+                "epg": {
+                    "source": "ètv",
+                    "id": "Palinsesto_Marche"
+                }
+            },
+            {
+                "sublcn": 8,
+                "logo": "ètvumbria",
+                "name": "èTV Umbria",
+                "type": "dash",
+                "url": "https://live.ipstream.it/etvumbria/etvumbria.stream/manifest.mpd"
+            },
+            {
+                "sublcn": 9,
+                "logo": "odeon24sardegna",
+                "name": "Odeon 24 Sardegna",
+                "type": "dash",
+                "url": "https://streaming.softwarecreation.it/Odeon24SA/Odeon24SA/manifest.mpd"
+            },
+            {
+                "sublcn": 10,
+                "logo": "videoregionesicilia.svg",
+                "name": "Video Regione",
+                "hd": true,
+                "type": "dash",
+                "url": "https://57214cb172d84f8cb311b91513952b03.msvdn.net/live/S40896499/ZuaLjACsWIL4/manifest.mpd"
+            }]
+        },
+        {
+            "lcn": 18,
+            "logo": "teleambiente",
+            "name": "TeleAmbiente",
+            "type": "hls",
+            "url": "https://5f22d76e220e1.streamlock.net/teleambiente3/teleambiente3/playlist.m3u8"
+        },
+        {
+            "lcn": 19,
+            "logo": "canale21extra",
+            "name": "Canale 21 Extra",
+            "type": "dash",
+            "url": "https://0ff9dd7fe9b64bc08a5fc4ed525454c3.msvdn.net/live/S42170132/sT6C3LFaD1iA/manifest.mpd"
+        },
+        {
+            "lcn": 19,
+            "logo": "canale19frosinone",
+            "name": "Canale 19 Frosinone",
+            "type": "hls",
+            "url": "https://5a1178b42cc03.streamlock.net/RRomaNetwork/RRomaNetwork/playlist.m3u8"
+        },
+        {
+            "lcn": 74,
+            "logo": "teleregione74",
+            "name": "Teleregione",
+            "type": "dash",
+            "url": "https://streaming.softwarecreation.it/TR118/TR118/manifest.mpd"
+        },
+        {
+            "lcn": 75,
+            "logo": "telepace.svg",
+            "name": "Telepace",
+            "type": "hls",
+            "url": "https://www.dailymotion.com/video/x9pha96",
+            "api": "cloudflare",
+            "epg": {
+                "source": "oggiintv",
+                "id": "Telepace"
+            }
+        },
+        {
+            "lcn": 76,
+            "logo": "teleroma56sport",
+            "name": "Teleroma 56 Sport",
+            "subtitle": "(Tele Radio Stereo)",
+            "type": "twitch",
+            "url": "TeleRadioStereo"
+        },
+        {
+            "lcn": 77,
+            "logo": "reteoro",
+            "name": "Rete Oro",
+            "type": "dash",
+            "url": "https://5926fc9c7c5b2.streamlock.net/9094/9094/manifest.mpd"
+        },
+        {
+            "lcn": 78,
+            "logo": "tvyesitalia",
+            "name": "TV Yes",
+            "type": "dash",
+            "url": "https://tsw.streamingwebtv24.it:1936/inteccdn6/inteccdn6/manifest.mpd"
+        },
+        {
+            "lcn": 79,
+            "logo": "gschannel",
+            "name": "GS Channel",
+            "subtitle": "(Made in Calabria)",
+            "hd": true,
+            "type": "hls",
+            "url": "https://rst.saiuzwebnetwork.it:8081/retereggio/index.m3u8",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "radiogschannel",
+                "name": "Radio GS Channel",
+                "type": "hls",
+                "url": "https://rst.saiuzwebnetwork.it:8081/retereggioradio/index.m3u8"
+            }]
+        },
+        {
+            "lcn": 80,
+            "logo": "trl",
+            "name": "TRL",
+            "hd": true,
+            "type": "hls",
+            "url": "https://5db313b643fd8.streamlock.net/TRL/TRL/playlist.m3u8"
+        },
+        {
+            "lcn": 81,
+            "logo": "canale81lazio",
+            "name": "Canale 81 Lazio",
+            "type": "dash",
+            "url": "https://5f22d76e220e1.streamlock.net/canale81lazio/canale81lazio/manifest.mpd",
+            "cssfix": "squashed-height",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "radio81.svg",
+                "name": "Radio 81",
+                "type": "audio",
+                "url": "https://ns3156088.ip-51-89-96.eu:8112/stream"
+            },
+            {
+                "sublcn": 2,
+                "logo": "radiocolonnatv.svg",
+                "name": "Radio Colonna TV",
+                "type": "youtube",
+                "url": "UCFq1ysrvuY3FWFfqXYTBKJA"                
+            },
+            {
+                "sublcn": 3,
+                "logo": "roma24",
+                "name": "Roma24",
+                "type": "audio",
+                "url": "https://my.streamingmedia.it/listen/roma24/play"
+            },
+            {
+                "sublcn": 4,
+                "logo": "lavocetv",
+                "name": "La Voce TV",
+                "type": "hls",
+                "url": "https://stream9.xdevel.com/video0s977001-1746/stream/playlist.m3u8"
+            },
+            {
+                "sublcn": 5,
+                "logo": "zerounotvnews",
+                "name": "Zerouno TV News",
+                "type": "dash",
+                "url": "https://5f22d76e220e1.streamlock.net/01news/01news/manifest.mpd"
+            }]
+        },
+        {
+            "lcn": 82,
+            "logo": "manàmanàsport",
+            "name": "Manà Manà Sport",
+            "type": "hls",
+            "url": "https://router.xdevel.com/video2s975363-2370/stream/playlist.m3u8",
+            "feed": true,
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "canale122",
+                "name": "Canale 122",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video0s975363-69/stream/playlist.m3u8",
+                "epg": {
+                    "source": "cusano",
+                    "id": "canale122"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "cusanonews7",
+                "name": "Cusano News 7",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video1s975363-1596/stream/playlist.m3u8"
+            },
+            {
+                "sublcn": 3,
+                "logo": "radiocusanocampus",
+                "name": "Radio Cusano Campus",
+                "hd": true,
+                "type": "hls",
+                "url": "https://router.xdevel.com/video3s975363-2380/stream/playlist.m3u8",
+                "epg": {
+                    "source": "cusano",
+                    "id": "radiocusanocampus"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "radiolaziale.svg",
+                "name": "Radio Laziale",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video5s975363-2398/stream/playlist.m3u8"
+            },
+            {
+                "categorySeparator": "Feed"
+            },
+            {
+                "sublcn": 5,
+                "logo": "fattiieri",
+                "name": "Fatti Ieri",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video8s975363-2572/stream/playlist.m3u8",
+                "feed": true
+            },
+            {
+                "sublcn": 6,
+                "logo": "psichecriminale",
+                "name": "Psiche Criminale",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video7s975363-2571/stream/playlist.m3u8",
+                "feed": true
+            },
+            {
+                "sublcn": 7,
+                "logo": "incidenteprobatorio",
+                "name": "Incidente Probatorio",
+                "type": "hls",
+                "url": "https://router.xdevel.com/video6s975363-2570/stream/playlist.m3u8",
+                "feed": true
+            },
+            {
+                "sublcn": 8,
+                "logo": "trovatimorti",
+                "name": "Trovati Morti",
+                "type": "hls",
+                "url": "https://stream10.xdevel.com/video4s975363-2381/stream/playlist.m3u8",
+                "feed": true
+            }]
+        },
+        {
+            "lcn": 83,
+            "logo": "teleroma2",
+            "name": "Teleroma2",
+            "type": "dash",
+            "url": "https://57068da1deb21.streamlock.net/teletibur/teletibur/manifest.mpd",
+            "hbbtv": [{
+                "categorySeparator": "Simply Radio"
+            },
+            {
+                "sublcn": 1,
+                "logo": "simplyradio",
+                "name": "Simply Radio",
+                "radio": true,
+                "type": "hls",
+                "url": "https://stream9.xdevel.com/audio2s975968-808/stream/playlist.m3u8"
+            },
+            {
+                "sublcn": 2,
+                "logo": "simplyitalia",
+                "name": "Simply Italia",
+                "radio": true,
+                "type": "hls",
+                "url": "https://stream4.xdevel.com/audio1s975968-807/stream/playlist.m3u8"
+            },
+            {
+                "categorySeparator": "MediaDAB"
+            },
+            {
+                "sublcn": 3,
+                "logo": "funkycornerradio",
+                "name": "Funky Corner Radio",
+                "type": "audio",
+                "url": "https://ais-sa2.cdnstream1.com/2447_192.mp3"
+            },
+            {
+                "sublcn": 4,
+                "logo": "radioalfa",
+                "name": "Radio Alfa",
+                "type": "audio",
+                "url": "https://stream15.top-ix.org/radioalfacanavese"
+            },
+            {
+                "sublcn": 5,
+                "logo": "radiobelllaemonellatv",
+                "name": "Radio Bellla e Monella TV",
+                "type": "dash",
+                "url": "https://58d921499d3d3.streamlock.net/RadioBelllaemonellaTV_dash/RadioBelllaemonellaTV_dash.stream/manifest.mpd"
+            },
+            {
+                "sublcn": 6,
+                "logo": "radiobirikinatv",
+                "name": "Radio Birikina TV",
+                "type": "dash",
+                "url": "https://56b50ada2d659.streamlock.net/RadioBirikinaTV_dash/RadioBirikinaTV_dash.stream/manifest.mpd"
+            },
+            {
+                "sublcn": 8,
+                "logo": "radioclassicamf",
+                "name": "Radio Classica",
+                "type": "audio",
+                "url": "https://stream10.xdevel.com/audio0s978096-2470/stream/icecast.audio"
+            },
+            {
+                "sublcn": 9,
+                "logo": "radioenergy",
+                "name": "Radio Energy",
+                "type": "audio",
+                "url": "https://gmusto.radioca.st/aac96"
+            },
+            {
+                "sublcn": 10,
+                "logo": "radiogammastereo",
+                "name": "Radio Gamma Stereo",
+                "type": "audio",
+                "url": "https://gammastereo.meway.host/stream"
+            },
+            {
+                "sublcn": 11,
+                "logo": "radiojukeboxcalabria",
+                "name": "Radio JukeBox",
+                "subtitle": "(Piemonte)",
+                "type": "audio",
+                "url": "https://stream15.top-ix.org/radiojukebox"
+            },
+            {
+                "sublcn": 12,
+                "logo": "radiok55",
+                "name": "Radio K55",
+                "type": "audio",
+                "url": "https://nr9.newradio.it:19211/stream"
+            },
+            {
+                "sublcn": 13,
+                "logo": "radiololgiata",
+                "name": "Radio L'Olgiata",
+                "type": "audio",
+                "url": "https://olgiata-danidi01.radioca.st/stream"
+            },
+            {
+                "sublcn": 14,
+                "logo": "medjugorjetvitalia",
+                "name": "Medjugorje TV Italia",
+                "type": "dash",
+                "url": "https://5f22d76e220e1.streamlock.net/medjugorjeitaliatv/medjugorjeitaliatv/manifest.mpd"
+            },
+            {
+                "sublcn": 15,
+                "logo": "radiopiterpantv",
+                "name": "Radio Piterpan TV",
+                "type": "dash",
+                "url": "https://58d921499d3d3.streamlock.net/RadioPiterpanTV_dash/RadioPiterpanTV_dash.stream/manifest.mpd"
+            },
+            {
+                "sublcn": 16,
+                "logo": "playtag",
+                "name": "PlayTag",
+                "type": "audio",
+                "url": "https://nr3.newradio.it/proxy/cavasvil?mp=/stream"
+            },
+            {
+                "sublcn": 17,
+                "logo": "radiosorrrisotv",
+                "name": "Radio SorRriso TV",
+                "type": "dash",
+                "url": "https://56b50ada2d659.streamlock.net/RadioSorrrisoTV_dash/RadioSorrrisoTV_dash.stream/manifest.mpd"
+            },
+            {
+                "sublcn": 18,
+                "logo": "rtr99tv",
+                "name": "RTR 99 TV",
+                "type": "dash",
+                "url": "https://rtr99.fluid.stream/RTR99_hbb/RTR99_hbb.stream/manifest.mpd",
+                "epg": {
+                    "source": "set",
+                    "id": "rtr99"
+                }
+            },
+            {
+                "sublcn": 19,
+                "logo": "rvs",
+                "name": "RVS",
+                "radio": true,
+                "type": "hls",
+                "url": "https://stream9.xdevel.com/audio0s978363-2600/stream/playlist.m3u8"                
+            },
+            {
+                "sublcn": 20,
+                "logo": "radioaelle",
+                "name": "Radio Aelle",
+                "type": "audio",
+                "url": "https://be.server89.com/8012/radioaelle.mp3"
+            },
+            {
+                "sublcn": 21,
+                "logo": "radionoise",
+                "name": "Radio Noise",
+                "type": "audio",
+                "url": "https://be.server89.com/8072/radionoise.mp3"
+            },
+            {
+                "categorySeparator": "Radio"
+            },
+            {
+                "sublcn": 22,
+                "logo": "radiooscià",
+                "name": "Radio Oscià",
+                "radio": true,
+                "type": "hls",
+                "url": "https://stream5.xdevel.com/audio0s976002-865/stream/playlist.m3u8"
+            },
+            {
+                "sublcn": 23,
+                "logo": "radiobluepoint",
+                "name": "Radio Blue Point",
+                "type": "audio",
+                "url": "https://nr14.newradio.it:8827/stream"
+            },
+            {
+                "sublcn": 24,
+                "logo": "radiosantissimatrinità",
+                "name": "Radio Santissima Trinità",
+                "type": "audio",
+                "url": "https://stream4.xdevel.com/audio0s975968-806/stream/icecast.audio"
+            },
+            {
+                "sublcn": 25,
+                "logo": "radioabruzzomarche",
+                "name": "Radio Abruzzo Marche",
+                "type": "audio",
+                "url": "https://s1.forstream.it:8040/stream"
+            },
+            {
+                "sublcn": 26,
+                "logo": "radioondalibera",
+                "name": "Radio Onda Libera",
+                "type": "dash",
+                "url": "https://w1.mediastreaming.it/ondalibera/livestream/manifest.mpd"
+            },
+            {
+                "sublcn": 27,
+                "logo": "miamiviceradio",
+                "name": "Miami Vice Radio",
+                "type": "audio",
+                "url": "https://nr9.newradio.it/proxy/miamivic?mp=/stream"
+            },
+            {
+                "sublcn": 28,
+                "logo": "radiogschannel",
+                "name": "Radio GS Channel",
+                "type": "hls",
+                "url": "https://rst.saiuzwebnetwork.it:8081/retereggioradio/index.m3u8"
+            },
+            {
+                "categorySeparator": "TV"
+            },
+            {
+                "sublcn": 29,
+                "logo": "miamivicetv",
+                "name": "Miami Vice TV",
+                "hd": true,
+                "type": "dash",
+                "url": "https://5926fc9c7c5b2.streamlock.net/9326/9326/manifest.mpd"
+            },
+            {
+                "sublcn": 30,
+                "logo": "radioimmaginetv",
+                "name": "Radio Immagine TV",
+                "type": "hls",
+                "url": "https://media.velcom.it:8081/RadioImmagineTV/index.fmp4.m3u8"
+            },
+            {
+                "sublcn": 31,
+                "logo": "laqtv",
+                "name": "LaQtv",
+                "type": "iframe",
+                "url": "https://vimeo.com/event/4648215/embed"
+            },
+            {
+                "sublcn": 32,
+                "logo": "radiolatinatv",
+                "name": "Radio Latina TV",
+                "hd": true,
+                "type": "hls",
+                "url": "https://media.velcom.it:8081/radiolatinatv/index.m3u8"
+            },
+            {
+                "sublcn": 33,
+                "logo": "sophiatv",
+                "name": "Sophia TV",
+                "type": "dash",
+                "url": "https://bild-und-ton.stream/sophiatv-it/livestream_high/manifest.mpd"
+            },
+            {
+                "sublcn": 34,
+                "logo": "lavocetv",
+                "name": "La Voce TV",
+                "type": "hls",
+                "url": "https://stream9.xdevel.com/video0s977001-1746/stream/playlist.m3u8"
+            },
+            {
+                "sublcn": 35,
+                "logo": "gschannel",
+                "name": "GS Channel",
+                "subtitle": "(Made in Calabria)",
+                "hd": true,
+                "type": "hls",
+                "url": "https://rst.saiuzwebnetwork.it:8081/retereggio/index.m3u8"
+            }]
+        },
+        {
+            "lcn": 83,
+            "logo": "ts2000",
+            "name": "TS2000",
+            "type": "hls",
+            "url": "https://streaming.ts2000tv.it:30443/ts2000tv/ts2000tv/playlist.m3u8"
+        },
+        {
+            "lcn": 85,
+            "logo": "cittàcelestetv",
+            "name": "Cittàceleste TV",
+            "type": "hls",
+            "url": "https://cittaceleste.tv/video/viewlivestreaming?rel=42323&cntr=0",
+            "api": "vercel",
+            "geoblock": true
+        },
+        {
+            "lcn": 87,
+            "logo": "rtr99tv",
+            "name": "RTR 99 TV",
+            "type": "dash",
+            "url": "https://rtr99.fluid.stream/RTR99_hbb/RTR99_hbb.stream/manifest.mpd",
+            "epg": {
+                "source": "set",
+                "id": "rtr99"
+            }
+        },
+        {
+            "lcn": 88,
+            "logo": "anita.svg",
+            "name": "Anita",
+            "hd": true,
+            "type": "hls",
+            "url": "https://srvx1.selftv.video/anitatv/live/playlist.m3u8"
+        },
+        {
+            "lcn": 88,
+            "logo": "rc88.svg",
+            "name": "RC88",
+            "type": "hls",
+            "url": "https://giatv.bozztv.com/giatv/giatv-centroitalia/centroitalia/playlist.m3u8"
+        },
+        {
+            "lcn": 93,
+            "logo": "mediatv",
+            "name": "Media TV",
+            "type": "hls",
+            "url": "https://stream3.aswifi.it/mediatv/stream/index.m3u8"
+        },
+        {
+            "lcn": 95,
+            "logo": "teleitalia41",
+            "name": "Teleitalia 41",
+            "type": "dash",
+            "url": "https://streaming.softwarecreation.it/teleitalia/teleitalia/manifest.mpd",
+            "cssfix": "very-squashed-height"
+        },
+        {
+            "lcn": 96,
+            "logo": "radioradio",
+            "name": "Radio Radio TV",
+            "hd": true,
+            "type": "dash",
+            "url": "https://200912.global.ssl.fastly.net/646b335e2291a2022444bb7c/live_abeef7b0903711eeb7c62796fbf7de76/manifest.mpd",
+            "epg": {
+                "source": "set",
+                "id": "radioradio"
+            }
+        },
+        {
+            "lcn": 97,
+            "logo": "romittv",
+            "name": "Romit TV",
+            "type": "hls",
+            "url": "https://stream10.xdevel.com/video21s975955-2185/stream/playlist.m3u8"
+        },
+        {
+            "lcn": 98,
+            "logo": "businesschannel",
+            "name": "Business Channel",
+            "hd": true,
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/businesschannel/businesschannel/manifest.mpd"
+        },
+        {
+            "lcn": 110,
+            "logo": "retesole",
+            "name": "Retesole",
+            "type": "hls",
+            "url": "https://5926fc9c7c5b2.streamlock.net/9332/9332/playlist.m3u8"
+        },
+        {
+            "lcn": 110,
+            "logo": "larockaforte",
+            "name": "La Rockaforte TV",
+            "type": "dash",
+            "url": "https://5926fc9c7c5b2.streamlock.net/npwsqkmzjp/npwsqkmzjp/manifest.mpd"
+        },
+        {
+            "lcn": 111,
+            "logo": "adn24",
+            "name": "ADN24",
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/adn24tv/adn24tv/manifest.mpd"
+        },
+        {
+            "lcn": 112,
+            "logo": "tuday",
+            "name": "TU Day",
+            "type": "hls",
+            "url": "https://stream.ets-sistemi.it:19360/tuday/tuday.m3u8"
+        },
+        {
+            "lcn": 113,
+            "logo": "gustotv",
+            "name": "Gusto TV",
+            "type": "hls",
+            "url": "https://64b16f23efbee.streamlock.net/gustotv/gustotv/playlist.m3u8"
+        },
+        {
+            "lcn": 117,
+            "logo": "turismotv",
+            "name": "Turismo TV",
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/turismotv/turismotv/manifest.mpd"
+        },
+        {
+            "lcn": 119,
+            "logo": "sl48",
+            "name": "SL48",
+            "type": "dash",
+            "url": "https://streaming.softwarecreation.it/sl48/sl48/manifest.mpd",
+            "cssfix": "very-squashed-height"
+        },
+        {
+            "lcn": 175,
+            "logo": "motoritvadn",
+            "name": "Motori TV",
+            "hd": true,
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/motoritv/motoritv/manifest.mpd"
+        },
+        {
+            "lcn": 176,
+            "logo": "easyanditaly",
+            "name": "Easy & Italy",
+            "type": "dash",
+            "url": "https://5926fc9c7c5b2.streamlock.net/bjxypgjasy/bjxypgjasy/manifest.mpd"
+        },
+        {
+            "lcn": 180,
+            "logo": "radiorocktv",
+            "name": "Radio Rock TV",
+            "type": "hls",
+            "url": "https://rr.fluid.stream/RadioRockTV/livestream/playlist.m3u8"
+        },
+        {
+            "lcn": 183,
+            "logo": "rtgtelegolfo",
+            "name": "RTG Telegolfo",
+            "type": "dash",
+            "url": "https://nrvideo1.newradio.it:1936/vmbjrayngd/vmbjrayngd/manifest.mpd"
+        },
+        {
+            "lcn": 184,
+            "logo": "teleradioorte",
+            "name": "Tele Radio Orte",
+            "type": "hls",
+            "url": "https://stream10.xdevel.com/video0s977516-2077/stream/playlist.m3u8"
+        },
+        {
+            "lcn": 188,
+            "logo": "lavocetv",
+            "name": "La Voce TV",
+            "type": "hls",
+            "url": "https://stream9.xdevel.com/video0s977001-1746/stream/playlist.m3u8"
+        },
+        {
+            "lcn": 210,
+            "logo": "rietilifetv",
+            "name": "Rieti Life TV",
+            "hd": true,
+            "type": "youtube",
+            "url": "UCDkZimxGVZ5wvoqzpOrvNnQ"
+        },
+        {
+            "lcn": 212,
+            "logo": "radioimmaginetv",
+            "name": "Radio Immagine TV",
+            "type": "hls",
+            "url": "https://media.velcom.it:8081/RadioImmagineTV/index.fmp4.m3u8",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "radiolatinatv",
+                "name": "Radio Latina TV",
+                "hd": true,
+                "type": "hls",
+                "url": "https://media.velcom.it:8081/radiolatinatv/index.m3u8"
+            },
+            {
+                "sublcn": 2,
+                "logo": "radioimmagine",
+                "name": "Radio Immagine",
+                "type": "audio",
+                "url": "https://media.velcom.it:8020/radioimmagine"
+            },
+            {
+                "sublcn": 3,
+                "logo": "radiolatina",
+                "name": "Radio Latina",
+                "type": "audio",
+                "url": "https://media.velcom.it:8014/radiolatina"
+            },
+            {
+                "sublcn": 4,
+                "logo": "radioluna",
+                "name": "Radio Luna",
+                "type": "audio",
+                "url": "https://media.velcom.it:8016/radioluna"
+            }]
+        },
+        {
+            "lcn": 299,
+            "logo": "standbytv",
+            "name": "Standby TV",
+            "type": "dash",
+            "url": "https://5926fc9c7c5b2.streamlock.net/standbytv/standbytv/manifest.mpd"
+        },
+        {
+            "lcn": 555,
+            "logo": "vaticanmedia.svg",
+            "name": "Vatican Media",
+            "hd": true,
+            "type": "youtube",
+            "url": "UCkwbN2a1L1H6P9rcA7FhAqg"
+        },
+        {
+            "lcn": 777,
+            "logo": "radioquattro",
+            "name": "Radio Quattro",
+            "type": "audio",
+            "url": "http://188.165.206.81:28001/stream",
+            "http": true
+        }
+    ]
+}

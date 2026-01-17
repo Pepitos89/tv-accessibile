@@ -1,0 +1,201 @@
+{
+    "$schema": "../../../schema.json",
+    "channels": [
+        {
+            "lcn": 3,
+            "logo": "rai3.svg",
+            "name": "Rai 3 TGR Sardegna",
+            "type": "hls",
+            "url": "https://tgrsardegna-live.akamaized.net/hls/live/2025572/tgrsardegna/tgrsardegna/playlist.m3u8",
+            "epg": {
+                "source": "raiplay",
+                "id": "rai-3"
+            },
+            "manualRestart": {
+                "source": "rai",
+                "id": "rai-3"
+            },
+            "geoblock": true
+        },
+        {
+            "lcn": 10,
+            "logo": "videolina",
+            "name": "Videolina",
+            "type": "hls",
+            "url": "https://7e1cc2454f2242afabe05cc0a2f483cd.msvdn.net/videolina/videolina_live/videolina_live/playlist.m3u8"
+        },
+        {
+            "lcn": 11,
+            "logo": "telecostasmeralda",
+            "name": "Tele Costa Smeralda",
+            "type": "hls",
+            "url": "https://7e1cc2454f2242afabe05cc0a2f483cd.msvdn.net/tcs_live/tcs/tcs/playlist.m3u8"
+        },
+        {
+            "lcn": 13,
+            "logo": "telesardegna",
+            "name": "TeleSardegna",
+            "type": "dash",
+            "url": "https://f54364fcc4f84d9d9a72c8915e72704b.msvdn.net/live/S95445963/z3dZO4LpABmG/manifest.mpd"
+        },
+        {
+            "lcn": 14,
+            "logo": "uno4",
+            "name": "Uno4",
+            "type": "hls",
+            "url": "https://cdn.uno4.it/index.m3u8"
+        },
+        {
+            "lcn": 18,
+            "logo": "odeon24sardegna",
+            "name": "Odeon 24 Sardegna",
+            "type": "dash",
+            "url": "https://streaming.softwarecreation.it/Odeon24SA/Odeon24SA/manifest.mpd"
+        },
+        {
+            "lcn": 77,
+            "logo": "aristanistv",
+            "name": "Aristanis TV",
+            "type": "hls",
+            "url": "https://video2.azotosolutions.com:1936/supertvoristano/supertvoristano/playlist.m3u8"
+        },
+        {
+            "lcn": 79,
+            "logo": "radiotelevisionesarda.svg",
+            "name": "Radio Televisione Sarda",
+            "type": "hls",
+            "url": "https://stream.ejatv.com/memfs/dff807e1-b3b2-49f5-92d6-5b178be4eb6d.m3u8"
+        },
+        {
+            "lcn": 88,
+            "logo": "teleregionelive",
+            "name": "Teleregione Live",
+            "type": "twitch",
+            "url": "teleregione_sardegna",
+            "hbbtv": [{
+                "categorySeparator": "TV Corallo"
+            },
+            {
+                "sublcn": 1,
+                "logo": "bonaria",
+                "name": "Bonaria TV",
+                "type": "youtube",
+                "url": "Xofb6rsCnto"
+            },
+            {
+                "sublcn": 2,
+                "logo": "radiobonaria",
+                "name": "Radio Bonaria",
+                "type": "audio",
+                "url": "https://stream3.xdevel.com/audio1s975443-153/stream/icecast.audio"  
+            },
+            {
+                "sublcn": 3,
+                "logo": "teleradiomaristella",
+                "name": "Tele Radio Maristella",
+                "type": "dash",
+                "url": "https://origin1.live-dvbt2.it/cdnedge10/live10/manifest.mpd"
+            },
+            {
+                "sublcn": 4,
+                "logo": "telepace.svg",
+                "name": "Telepace",
+                "type": "hls",
+                "url": "https://www.dailymotion.com/video/x9pha96",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "oggiintv",
+                    "id": "Telepace"
+                }
+            },
+            {
+                "sublcn": 5,
+                "logo": "teledehon.svg",
+                "name": "Tele Dehon",
+                "hd": true,
+                "type": "hls",
+                "url": "https://5f22d76e220e1.streamlock.net/rtmpteledehon/smil:rtmpteledehon.smil/playlist.m3u8",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "Tele Dehon_it"
+                }
+            },
+            {
+                "sublcn": 6,
+                "logo": "icarotv.svg",
+                "name": "Icaro TV",
+                "type": "hls",
+                "url": "https://59d7d6f47d7fc.streamlock.net/icarotv/icarotv/playlist.m3u8"
+            },
+            {
+                "sublcn": 7,
+                "logo": "videonovara",
+                "name": "Videonovara",
+                "hd": true,
+                "type": "dash",
+                "url": "https://wb.top-ix.org/redirect/avtvlive/videonovara/streaming?type=dash"
+            },
+            {
+                "sublcn": 8,
+                "logo": "tvl.svg",
+                "name": "TVL",
+                "type": "hls",
+                "url": "https://oj7lnw79lg82-hls-live.mariatvcdn.it/mariatvcdn/70564e1c6884c007c76f0c128d679eed.sdp/playlist.m3u8"
+            },
+            {
+                "categorySeparator": "Altre TV e Radio"            
+            },
+            {
+                "sublcn": 9,
+                "logo": "supersix",
+                "name": "SuperSix",
+                "type": "dash",
+                "url": "https://5f22d76e220e1.streamlock.net/supersixnew/supersixnew/manifest.mpd"
+            },
+            {
+                "sublcn": 10,
+                "logo": "radiokalaritana",
+                "name": "Radio Kalaritana",
+                "type": "audio",
+                "url": "https://radio.kalaritanamedia.it/;stream.mp3"  
+            },
+            {
+                "sublcn": 11,
+                "logo": "radionuorocentrale",
+                "name": "Radio Nuoro Centrale",
+                "type": "audio",
+                "url": "https://stream6.xdevel.com/audio1s976970-1733/stream/icecast.audio"  
+            },
+            {
+                "sublcn": 12,
+                "logo": "sportoutdoortv",
+                "name": "SportOutdoor.tv",
+                "hd": true,
+                "type": "dash",
+                "url": "https://5a1178b42cc03.streamlock.net/sportoutdoorstream/sportoutdoorstream/manifest.mpd"
+            },
+            {
+                "sublcn": 13,
+                "logo": "sardegnalive.svg",
+                "name": "Sardegna Live",
+                "hd": true,
+                "type": "iframe",
+                "url": "https://livepush.io/embed/em3J2nBNarDKZhU"  
+            }]
+        },
+        {
+            "lcn": 99,
+            "logo": "sardegna1",
+            "name": "Sardegna 1",
+            "type": "dash",
+            "url": "https://7e1cc2454f2242afabe05cc0a2f483cd.msvdn.net/live/S30721796/ZS3Xu8mn5f0J/manifest.mpd"
+        },
+        {
+            "lcn": 716,
+            "logo": "radiosintony",
+            "name": "Radio Sintony",
+            "type": "audio",
+            "url": "https://stream5.xdevel.com/audio0s976204-1069/stream/icecast.audio"
+        }
+    ]
+}

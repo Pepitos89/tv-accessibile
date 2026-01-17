@@ -1,0 +1,548 @@
+{
+    "$schema": "../../../schema.json",
+    "channels": [
+        {
+            "lcn": 3,
+            "logo": "rai3.svg",
+            "name": "Rai 3 TGR Calabria",
+            "type": "hls",
+            "url": "https://tgrcalabria-live.akamaized.net/hls/live/2025561/tgrcalabria/tgrcalabria/playlist.m3u8",
+            "epg": {
+                "source": "raiplay",
+                "id": "rai-3"
+            },
+            "manualRestart": {
+                "source": "rai",
+                "id": "rai-3"
+            },
+            "geoblock": true
+        },
+        {
+            "lcn": 10,
+            "logo": "videocalabria.svg",
+            "name": "Video Calabria",
+            "type": "dash",
+            "url": "https://a8a02dd9a49a4fc9810743615c65ab73.msvdn.net/live/S76734991/i6NeNqLYaspb/manifest.mpd",
+            "epg": {
+                "source": "uvotv",
+                "id": "Video Calabria_it"
+            }
+        },
+        {
+            "lcn": 11,
+            "logo": "lactv.svg",
+            "name": "LaC",
+            "type": "dash",
+            "url": "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S47282891/JWjL3xqPf4bX/manifest.mpd",
+            "epg": {
+                "source": "lacplay",
+                "id": "lac-tv"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "laconair.svg",
+                "name": "LaC On Air",
+                "type": "dash",
+                "url": "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/100197/SOrBDPy/manifest.mpd",
+                "epg": {
+                    "source": "lacplay",
+                    "id": "lac-onair"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "lacnetwork.svg",
+                "name": "LaC Network",
+                "type": "dash",
+                "url": "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S27391994/HVvPMzy/manifest.mpd",
+                "epg": {
+                    "source": "lacplay",
+                    "id": "lac_network"
+                }
+            }]
+        },
+        {
+            "lcn": 12,
+            "logo": "teleuropanetwork",
+            "name": "TEN",
+            "type": "dash",
+            "url": "https://7640f9b3494e4d1fb307f886e3b60402.msvdn.net/live/S41081260/ohLhSxDNpDNC/manifest.mpd",
+            "epg": {
+                "source": "uvotv",
+                "id": "TEN TV_it"
+            }
+        },
+        {
+            "lcn": 13,
+            "logo": "calabriatv",
+            "name": "Calabria TV",
+            "hd": true,
+            "type": "hls",
+            "url": "https://64b16f23efbee.streamlock.net/calabriatv/calabriatv/playlist.m3u8",
+            "epg": {
+                "source": "uvotv",
+                "id": "Calabria TV.tvprofil_it"
+            }
+        },
+        {
+            "lcn": 14,
+            "logo": "rticalabria",
+            "name": "RTI",
+            "type": "hls",
+            "url": "https://stream.ets-sistemi.it:8081/rticalabria/index.m3u8"
+        },
+        {
+            "lcn": 15,
+            "logo": "esperiatv",
+            "name": "Esperia TV",
+            "type": "hls",
+            "url": "https://59d7d6f47d7fc.streamlock.net/esperiatv/esperiatv/playlist.m3u8"
+        },
+        {
+            "lcn": 16,
+            "logo": "telespaziotv",
+            "name": "Telespazio TV",
+            "type": "dash",
+            "url": "https://5f22d76e220e1.streamlock.net/Telespaziotv/Telespaziotv/manifest.mpd",
+            "epg": {
+                "source": "digitalbitrate",
+                "id": "tca/TCA_CH32_9807"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "businesschannel",
+                "name": "Business Channel",
+                "hd": true,
+                "type": "dash",
+                "url": "https://64b16f23efbee.streamlock.net/businesschannel/businesschannel/manifest.mpd"
+            },
+            {
+                "sublcn": 2,
+                "logo": "calabriauno",
+                "name": "CalabriaUno",
+                "hd": true,
+                "type": "dash",
+                "url": "https://635320cd397eb.streamlock.net/stream/golive/manifest.mpd"
+            },
+            {
+                "sublcn": 3,
+                "logo": "radiojukeboxcalabria",
+                "name": "Radio JukeBox TV",
+                "type": "dash",
+                "url": "https://64b16f23efbee.streamlock.net/radiojukeboxtv/radiojukeboxtv/manifest.mpd"
+            },
+            {
+                "sublcn": 4,
+                "logo": "radioricordi",
+                "name": "Radio Ricordi TV",
+                "type": "dash",
+                "url": "https://5f22d76e220e1.streamlock.net/radioricorditv/radioricorditv/manifest.mpd"
+            },
+            {
+                "sublcn": 5,
+                "logo": "lagrandeitalia",
+                "name": "La Grande Italia",
+                "type": "dash",
+                "url": "https://64b16f23efbee.streamlock.net/grandeitaliatv/grandeitaliatv/manifest.mpd"
+            },
+            {
+                "sublcn": 6,
+                "logo": "taurianovatv",
+                "name": "Taurianova TV",
+                "type": "dash",
+                "url": "https://5f22d76e220e1.streamlock.net/taurianovatv/taurianovatv/manifest.mpd"                
+            }]
+        },
+        {
+            "lcn": 17,
+            "logo": "laconair.svg",
+            "name": "LaC On Air",
+            "type": "dash",
+            "url": "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/100197/SOrBDPy/manifest.mpd",
+            "epg": {
+                "source": "lacplay",
+                "id": "lac-onair"
+            }
+        },
+        {
+            "lcn": 18,
+            "logo": "telea1",
+            "name": "Tele A1",
+            "type": "hls",
+            "url": "https://stream.ets-sistemi.it:8081/telea1-live/index.m3u8"
+        },
+        {
+            "lcn": 75,
+            "logo": "laltrocorriere.svg",
+            "name": "L'Altro Corriere",
+            "type": "hls",
+            "url": "https://52ee6512fee4427889eba89957975fa0.msvdn.net/live/S24350460/BEj8ZmQiQ9UG/playlist.m3u8"
+        },
+        {
+            "lcn": 76,
+            "logo": "telemia",
+            "name": "Telemia",
+            "type": "hls",
+            "url": "https://playerssl.telemia.tv/fileadmin/hls/TelemiaHD/telemia85_mediachunks.m3u8",
+            "epg": {
+                "source": "uvotv",
+                "id": "TELEMIA_it"
+            },
+            "hbbtv": [{
+                "categorySeparator": "TV"
+            },
+            {
+                "sublcn": 2,
+                "logo": "calabrianews24",
+                "name": "Calabria News 24",
+                "type": "hls",
+                "url": "https://playerssl.telemia.tv/fileadmin/hls/CalabriaNews24/calabrianews24_mediachunks.m3u8"
+            },
+            {
+                "sublcn": 3,
+                "logo": "telebruzzano",
+                "name": "Telebruzzano",
+                "type": "hls",
+                "url": "https://playerssl.telemia.tv/fileadmin/hls/Telebruzzano/telebruzzano_mediachunks.m3u8"
+            },
+            {
+                "sublcn": 4,
+                "logo": "pianatv",
+                "name": "Piana TV",
+                "hd": true,
+                "type": "hls",
+                "url": "https://playerssl.telemia.tv/fileadmin/hls/PianaTV/pianatv_mediachunks.m3u8"
+            },
+            {
+                "sublcn": 5,
+                "logo": "lamiaradio",
+                "name": "La Mia Radio",
+                "subtitle": "(radiovisione)",
+                "type": "hls",
+                "url": "https://playerssl.telemia.tv/fileadmin/hls/LaMiaRadio/lamiaradio_mediachunks.m3u8"
+            },
+            {
+                "categorySeparator": "Radio"
+            },
+            {
+                "sublcn": 6,
+                "logo": "lamiaradio",
+                "name": "La Mia Radio",
+                "type": "audio",
+                "url": "https://nrf1.newradio.it/stream/9786"
+            },
+            {
+                "sublcn": 7,
+                "logo": "rcradio",
+                "name": "RC Radio",
+                "type": "audio",
+                "url": "https://stream10.xdevel.com/audio0s977154-1826/stream/icecast.audio"
+            },
+            {
+                "sublcn": 8,
+                "logo": "studio54network.svg",
+                "name": "Studio 54 Network",
+                "type": "audio",
+                "url": "https://stream10.xdevel.com/audio0s977557-2095/stream/icecast.audio"
+            },
+            {
+                "sublcn": 9,
+                "logo": "radioquartiere1",
+                "name": "Radio Quartiere 1",
+                "type": "audio",
+                "url": "https://stream-174.zeno.fm/urz5widop6ztv"
+            }]
+        },
+        {
+            "lcn": 77,
+            "logo": "reggiotv.svg",
+            "name": "Reggio TV",
+            "type": "dash",
+            "url": "https://cdn10.streamshow.it/cloud-reggiotv/reggiotv/manifest.mpd",
+            "epg": {
+                "source": "uvotv",
+                "id": "REGGIO TV.tvprofil_it"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "soveratounotv",
+                "name": "Soverato Uno TV",
+                "type": "twitch",
+                "url": "SoveratoUnoTV"
+            },
+            {
+                "sublcn": 2,
+                "logo": "telemagnagraecia",
+                "name": "Tele Magna Graecia",
+                "type": "twitch",
+                "url": "tmg_calabria"
+            }]
+        },
+        {
+            "lcn": 78,
+            "logo": "rtctelecalabria",
+            "name": "RTC Telecalabria",
+            "type": "dash",
+            "url": "https://w1.mediastreaming.it/calabriachannel/livestream/manifest.mpd"
+        },
+        {
+            "lcn": 80,
+            "logo": "telemormanno",
+            "name": "Telemormanno",
+            "type": "hls",
+            "url": "https://uvotv.zappr.stream/425.m3u8"
+        },
+        {
+            "lcn": 82,
+            "logo": "jonicaradiotv",
+            "name": "Jonica Radio TV",
+            "type": "dash",
+            "url": "https://5a1178b42cc03.streamlock.net/jonica/jonica/manifest.mpd"
+        },
+        {
+            "lcn": 83,
+            "logo": "gschannel",
+            "name": "GS Channel",
+            "hd": true,
+            "type": "hls",
+            "url": "https://rst.saiuzwebnetwork.it:8081/retereggio/index.m3u8",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "radiogschannel",
+                "name": "Radio GS Channel",
+                "type": "hls",
+                "url": "https://rst.saiuzwebnetwork.it:8081/retereggioradio/index.m3u8"
+            }]
+        },
+        {
+            "lcn": 85,
+            "logo": "eccellenzacalabria.svg",
+            "name": "Eccellenza Calabria",
+            "hd": true,
+            "type": "hls",
+            "url": "https://604e46ac2bdee.streamlock.net:1936/eccelenzacalabria/eccelenzacalabria/playlist.m3u8",
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "telejonio",
+                "name": "TeleJonio",
+                "type": "hls",
+                "url": "https://59d7d6f47d7fc.streamlock.net/telejonio/telejonio/playlist.m3u8"
+            }]
+        },
+        {
+            "lcn": 86,
+            "logo": "teledehon.svg",
+            "name": "Tele Dehon",
+            "hd": true,
+            "type": "hls",
+            "url": "https://5f22d76e220e1.streamlock.net/rtmpteledehon/smil:rtmpteledehon.smil/playlist.m3u8",
+            "epg": {
+                "source": "uvotv",
+                "id": "Tele Dehon_it"
+            },
+            "hbbtv": [{
+                "sublcn": 1,
+                "logo": "icarotv.svg",
+                "name": "Icaro TV",
+                "type": "hls",
+                "url": "https://59d7d6f47d7fc.streamlock.net/icarotv/icarotv/playlist.m3u8",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "Icaro TV_it"
+                }
+            },
+            {
+                "sublcn": 2,
+                "logo": "tvl.svg",
+                "name": "TVL",
+                "type": "hls",
+                "url": "https://oj7lnw79lg82-hls-live.mariatvcdn.it/mariatvcdn/70564e1c6884c007c76f0c128d679eed.sdp/playlist.m3u8"
+            },
+            {
+                "sublcn": 3,
+                "logo": "telepace.svg",
+                "name": "Telepace",
+                "type": "hls",
+                "url": "https://www.dailymotion.com/video/x9pha96",
+                "api": "cloudflare",
+                "epg": {
+                    "source": "oggiintv",
+                    "id": "Telepace"
+                }
+            },
+            {
+                "sublcn": 4,
+                "logo": "teleradiopace1",
+                "name": "TeleRadioPace 1",
+                "type": "hls",
+                "url": "https://jk3lz2bwlw79-hls-live.mariatvcdn.it/teleradiopace1/efcc8fc46cab26315ce3f5845d76008f.sdp/playlist.m3u8",
+                "epg": {
+                    "source": "uvotv",
+                    "id": "TELERADIOPACE 1_it"
+                }
+            },
+            {
+                "sublcn": 5,
+                "logo": "videonovara",
+                "name": "Videonovara",
+                "hd": true,
+                "type": "dash",
+                "url": "https://wb.top-ix.org/redirect/avtvlive/videonovara/streaming?type=dash"
+            },
+            {
+                "sublcn": 6,
+                "logo": "radiofratesole",
+                "name": "Radio Frate Sole",
+                "radio": "video",
+                "type": "dash",
+                "url": "https://5926fc9c7c5b2.streamlock.net/9304/9304/manifest.mpd"        
+            },
+            {
+                "sublcn": 7,
+                "logo": "radiopace",
+                "name": "Radio Pace",
+                "radio": "video",
+                "type": "hls",
+                "url": "https://stream.mariatvcdn.com/trpradio/c92dd777d146ffcd75d0b6cfb13a9153.sdp/playlist.m3u8"
+            },
+            {
+                "sublcn": 8,
+                "logo": "emiliaromagnaindiretta.svg",
+                "name": "L'Emilia-Romagna in Diretta",
+                "type": "dash",
+                "url": "https://cdn-base321.ciclano.io:1443/base321/base321/manifest.mpd"
+            }]
+        },
+        {
+            "lcn": 87,
+            "logo": "videotouring",
+            "name": "VideoTouring",
+            "type": "iframe",
+            "url": "https://streamingvideo.auranex.cloud/70baacad-47c6-41a6-aee0-86530c31e080.html",
+            "cssfix": "center-iframe",
+            "epg": {
+                "source": "uvotv",
+                "id": "Video Touring.tvprofil_it"
+            }
+        },
+        {
+            "lcn": 90,
+            "logo": "turismotv",
+            "name": "Turismo TV",
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/turismotv/turismotv/manifest.mpd"
+        },
+        {
+            "lcn": 91,
+            "logo": "radioricordi",
+            "name": "Radio Ricordi TV",
+            "type": "dash",
+            "url": "https://5f22d76e220e1.streamlock.net/radioricorditv/radioricorditv/manifest.mpd"
+        },
+        {
+            "lcn": 93,
+            "logo": "adn24",
+            "name": "ADN24",
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/adn24tv/adn24tv/manifest.mpd"
+        },
+        {
+            "lcn": 94,
+            "logo": "tvyesitalia",
+            "name": "TV Yes",
+            "type": "dash",
+            "url": "https://tsw.streamingwebtv24.it:1936/inteccdn6/inteccdn6/manifest.mpd"
+        },
+        {
+            "lcn": 96,
+            "logo": "soveratounotv",
+            "name": "Soverato Uno TV",
+            "type": "twitch",
+            "url": "SoveratoUnoTV"
+        },
+        {
+            "lcn": 97,
+            "logo": "telemagnagraecia",
+            "name": "Tele Magna Graecia",
+            "type": "twitch",
+            "url": "tmg_calabria"
+        },
+        {
+            "lcn": 111,
+            "logo": "lacnetwork.svg",
+            "name": "LaC Network",
+            "type": "dash",
+            "url": "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S27391994/HVvPMzy/manifest.mpd",
+            "epg": {
+                "source": "lacplay",
+                "id": "lac_network"
+            }
+        },
+        {
+            "lcn": 114,
+            "logo": "gustotv",
+            "name": "Gusto TV",
+            "type": "hls",
+            "url": "https://64b16f23efbee.streamlock.net/gustotv/gustotv/playlist.m3u8"
+        },
+        {
+            "lcn": 116,
+            "logo": "mediasud",
+            "name": "Mediasud",
+            "type": "hls",
+            "url": "https://5f22d76e220e1.streamlock.net/mediasud/mediasud/playlist.m3u8"        
+        },
+        {
+            "lcn": 175,
+            "logo": "motoritvadn",
+            "name": "Motori TV",
+            "hd": true,
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/motoritv/motoritv/manifest.mpd"
+        },
+        {
+            "lcn": 177,
+            "logo": "radiojukeboxcalabria",
+            "name": "Radio JukeBox TV",
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/radiojukeboxtv/radiojukeboxtv/manifest.mpd"
+        },
+        {
+            "lcn": 185,
+            "logo": "pianatv",
+            "name": "Piana TV",
+            "hd": true,
+            "type": "hls",
+            "url": "https://playerssl.telemia.tv/fileadmin/hls/PianaTV/pianatv_mediachunks.m3u8"
+        },
+        {
+            "lcn": 186,
+            "logo": "lagrandeitalia",
+            "name": "La Grande Italia",
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/grandeitaliatv/grandeitaliatv/manifest.mpd"
+        },
+        {
+            "lcn": 187,
+            "logo": "businesschannel",
+            "name": "Business Channel",
+            "hd": true,
+            "type": "dash",
+            "url": "https://64b16f23efbee.streamlock.net/businesschannel/businesschannel/manifest.mpd"
+        },
+        {
+            "lcn": 198,
+            "logo": "ondatv",
+            "name": "Onda TV",
+            "type": "twitch",
+            "url": "OndaTVCalabria"
+        },
+        {
+            "lcn": 351,
+            "logo": "70-80",
+            "name": "70-80.it",
+            "type": "dash",
+            "url": "https://585b674743bbb.streamlock.net/9050/9050/manifest.mpd"
+        }
+    ]
+}
